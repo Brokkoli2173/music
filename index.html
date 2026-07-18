@@ -256,13 +256,25 @@ ul, ol { list-style: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%; /* keep faces/upper-body in frame on tall mobile crops */
+  object-position: center 25%; /* keep face clear of the headline's lower line */
+  filter: saturate(0.78) brightness(0.88) contrast(1.06);
 }
 
 .hero__scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(10,12,15,0.92) 0%, rgba(10,12,15,0.35) 55%, rgba(10,12,15,0.15) 100%);
+  /* Mobile: text still spans full width, anchored to the bottom — a simple vertical wash is enough. */
+  background: linear-gradient(0deg, rgba(10,12,15,0.9) 0%, rgba(10,12,15,0.45) 45%, rgba(10,12,15,0.1) 75%, transparent 100%);
+}
+
+@media (min-width: 860px) {
+  .hero__scrim {
+    /* Desktop: text moves to the right, so the dark wash mirrors to sit behind it —
+       the subject on the left keeps clean, natural light instead of being dimmed for no reason. */
+    background:
+      linear-gradient(245deg, rgba(10,12,15,0.9) 0%, rgba(10,12,15,0.68) 30%, rgba(10,12,15,0.3) 55%, rgba(10,12,15,0.04) 78%),
+      linear-gradient(0deg, rgba(10,12,15,0.55) 0%, rgba(10,12,15,0.2) 40%, transparent 70%);
+  }
 }
 
 .hero__content {
@@ -284,6 +296,7 @@ ul, ol { list-style: none; }
   line-height: 1.08;
   letter-spacing: -0.01em;
   margin-bottom: var(--space-md);
+  text-shadow: 0 2px 24px rgba(10, 12, 15, 0.35);
 }
 .hero__headline em {
   font-style: italic;
@@ -302,6 +315,27 @@ ul, ol { list-style: none; }
   margin-top: var(--space-xs);
   font-size: 0.82rem;
   color: rgba(247, 244, 238, 0.5);
+}
+
+@media (min-width: 860px) {
+  /* Desktop: subject stands left-of-center in the photo, so the text column moves right
+     to sit on open ground instead of competing with her face. Mobile keeps the original
+     full-width, bottom-anchored layout since the crop there is mostly vertical anyway. */
+  .hero__content {
+    text-align: right;
+  }
+  .hero__headline {
+    max-width: 620px;
+    margin-left: auto;
+  }
+  .hero__sub {
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: 0;
+  }
+  .hero__image {
+    object-position: 22% 22%; /* keep the subject visible on the left, clear of the text column */
+  }
 }
 
 .scroll-hint {
@@ -871,7 +905,7 @@ ul, ol { list-style: none; }
   <!-- ============ 3. ABOUT ============ -->
   <section class="about" id="about">
     <div class="about__portrait">
-      <img class="about__image" src="assets/images/portrait.jpg" alt="Porträt von Melis Bulut" loading="lazy">
+      <img class="about__image" src="portrait.jpg" alt="Porträt von Melis Bulut" loading="lazy">
     </div>
     <div class="about__text">
       <p class="eyebrow">Über Melis</p>

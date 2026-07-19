@@ -542,48 +542,57 @@ ul, ol { list-style: none; }
   padding: var(--space-2xl) var(--space-md);
 }
 
-.audio-player {
+.demo-list {
   margin-top: var(--space-lg);
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  padding: var(--space-md);
-  background: var(--ink);
-  border-radius: var(--radius-md);
   max-width: 560px;
 }
-.audio-player__toggle {
+.demo-list__item {
+  border-top: 1px solid var(--line-on-light);
+  padding: var(--space-sm) 0;
+}
+.demo-list__item:last-child { border-bottom: 1px solid var(--line-on-light); }
+
+.demo-list__toggle {
   display: flex;
   align-items: center;
-  gap: 0.8em;
+  gap: 0.9em;
+  width: 100%;
   background: none;
   border: none;
-  color: var(--ivory);
+  padding: 0;
+  color: var(--ink);
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   cursor: pointer;
-  flex-shrink: 0;
+  text-align: left;
 }
-.audio-player__icon {
+.demo-list__icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.demo-list__item.is-active .demo-list__icon {
   background: var(--gold);
   color: var(--ink);
-  font-size: 0.8rem;
 }
-.audio-player__track {
-  flex: 1;
-  height: 3px;
-  background: var(--line-on-dark);
+.demo-list__track {
+  height: 2px;
+  background: var(--line-on-light);
   border-radius: 2px;
   overflow: hidden;
+  margin-top: var(--space-sm);
+  margin-left: calc(34px + 0.9em); /* align under the title, not under the icon */
 }
-.audio-player__progress {
+.demo-list__progress {
   height: 100%;
   width: 0%;
   background: var(--gold);
@@ -1048,19 +1057,36 @@ ul, ol { list-style: none; }
       selbst rein:
     </p>
 
-    <div class="audio-player" role="group" aria-label="Audio-Beispiel anhören">
-      <button class="audio-player__toggle" id="audioToggle" aria-pressed="false">
-        <span class="audio-player__icon" aria-hidden="true">▶</span>
-        <span class="audio-player__label">Live-Ausschnitt anhören</span>
-      </button>
-      <div class="audio-player__track" aria-hidden="true">
-        <div class="audio-player__progress" id="audioProgress"></div>
-      </div>
-      <audio id="audioSample" preload="none">
-        <!-- Replace with a real performance clip: assets/audio/sample.mp3 -->
-        <source src="assets/audio/sample.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <ul class="demo-list" data-demo-list>
+      <li class="demo-list__item is-active" data-index="0" data-src="assets/audio/demo-1.m4a">
+        <button class="demo-list__toggle" aria-pressed="false">
+          <span class="demo-list__icon" aria-hidden="true">▶</span>
+          <span class="demo-list__title">Akustische Ballade</span>
+        </button>
+        <div class="demo-list__track" aria-hidden="true">
+          <div class="demo-list__progress"></div>
+        </div>
+      </li>
+      <li class="demo-list__item" data-index="1" data-src="assets/audio/demo-2.m4a">
+        <button class="demo-list__toggle" aria-pressed="false">
+          <span class="demo-list__icon" aria-hidden="true">▶</span>
+          <span class="demo-list__title">Live mit Band</span>
+        </button>
+        <div class="demo-list__track" aria-hidden="true">
+          <div class="demo-list__progress"></div>
+        </div>
+      </li>
+      <li class="demo-list__item" data-index="2" data-src="assets/audio/demo-3.m4a">
+        <button class="demo-list__toggle" aria-pressed="false">
+          <span class="demo-list__icon" aria-hidden="true">▶</span>
+          <span class="demo-list__title">Türkischer Klassiker</span>
+        </button>
+        <div class="demo-list__track" aria-hidden="true">
+          <div class="demo-list__progress"></div>
+        </div>
+      </li>
+    </ul>
+    <audio id="demoAudio" preload="none"></audio>
 
     <p class="genre-list">
       Akustisch <span aria-hidden="true">·</span> Pop &amp; Soul <span aria-hidden="true">·</span>
@@ -1273,45 +1299,82 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.4 });
   wavePaths.forEach(path => waveObserver.observe(path));
 
-  /* ---- Audio sample player ---- */
-  const audioToggle = document.getElementById('audioToggle');
-  const audioSample = document.getElementById('audioSample');
-  const audioProgress = document.getElementById('audioProgress');
-  const audioLabel = audioToggle ? audioToggle.querySelector('.audio-player__label') : null;
-  const audioIcon = audioToggle ? audioToggle.querySelector('.audio-player__icon') : null;
+  /* ---- Multi-track demo list ---- */
+  const demoList = document.querySelector('[data-demo-list]');
+  const demoAudio = document.getElementById('demoAudio');
 
-  if (audioToggle && audioSample) {
-    audioToggle.addEventListener('click', () => {
-      if (audioSample.paused) {
-        audioSample.play().catch(() => {
-          // Fails gracefully if assets/audio/sample.mp3 has not been added yet.
-          if (audioLabel) audioLabel.textContent = 'Audio wird bald verfügbar sein';
+  if (demoList && demoAudio) {
+    const items = demoList.querySelectorAll('.demo-list__item');
+
+    const setActive = (item) => {
+      items.forEach((el) => {
+        const isThis = el === item;
+        el.classList.toggle('is-active', isThis);
+        el.querySelector('.demo-list__toggle').setAttribute('aria-pressed', isThis ? 'true' : 'false');
+        el.querySelector('.demo-list__icon').textContent = isThis ? '❚❚' : '▶';
+        if (!isThis) el.querySelector('.demo-list__progress').style.width = '0%';
+      });
+    };
+
+    const resetIcon = (item) => {
+      item.querySelector('.demo-list__icon').textContent = '▶';
+      item.querySelector('.demo-list__toggle').setAttribute('aria-pressed', 'false');
+    };
+
+    items.forEach((item) => {
+      const toggle = item.querySelector('.demo-list__toggle');
+      const progress = item.querySelector('.demo-list__progress');
+      const src = item.dataset.src;
+
+      toggle.addEventListener('click', () => {
+        const isCurrentTrack = demoAudio.dataset.currentSrc === src;
+
+        if (isCurrentTrack && !demoAudio.paused) {
+          demoAudio.pause();
+          return;
+        }
+
+        if (!isCurrentTrack) {
+          demoAudio.src = src;
+          demoAudio.dataset.currentSrc = src;
+        }
+
+        setActive(item);
+        demoAudio.play().catch(() => {
+          // Fails gracefully until the real files are added under assets/audio/
+          item.querySelector('.demo-list__title').textContent += ' (Audio folgt in Kürze)';
+          resetIcon(item);
         });
-      } else {
-        audioSample.pause();
+      });
+    });
+
+    demoAudio.addEventListener('pause', () => {
+      const activeItem = demoList.querySelector('.demo-list__item.is-active');
+      if (activeItem) resetIcon(activeItem);
+    });
+
+    demoAudio.addEventListener('play', () => {
+      const activeItem = demoList.querySelector('.demo-list__item.is-active');
+      if (activeItem) {
+        activeItem.querySelector('.demo-list__icon').textContent = '❚❚';
+        activeItem.querySelector('.demo-list__toggle').setAttribute('aria-pressed', 'true');
       }
     });
 
-    audioSample.addEventListener('play', () => {
-      audioToggle.setAttribute('aria-pressed', 'true');
-      if (audioIcon) audioIcon.textContent = '❚❚';
-      if (audioLabel) audioLabel.textContent = 'Wird abgespielt …';
+    demoAudio.addEventListener('ended', () => {
+      const activeItem = demoList.querySelector('.demo-list__item.is-active');
+      if (activeItem) {
+        resetIcon(activeItem);
+        activeItem.querySelector('.demo-list__progress').style.width = '0%';
+      }
     });
 
-    audioSample.addEventListener('pause', () => {
-      audioToggle.setAttribute('aria-pressed', 'false');
-      if (audioIcon) audioIcon.textContent = '▶';
-      if (audioLabel) audioLabel.textContent = 'Live-Ausschnitt anhören';
-    });
-
-    audioSample.addEventListener('ended', () => {
-      if (audioProgress) audioProgress.style.width = '0%';
-    });
-
-    audioSample.addEventListener('timeupdate', () => {
-      if (!audioSample.duration || !audioProgress) return;
-      const pct = (audioSample.currentTime / audioSample.duration) * 100;
-      audioProgress.style.width = pct + '%';
+    demoAudio.addEventListener('timeupdate', () => {
+      if (!demoAudio.duration) return;
+      const activeItem = demoList.querySelector('.demo-list__item.is-active');
+      if (!activeItem) return;
+      const pct = (demoAudio.currentTime / demoAudio.duration) * 100;
+      activeItem.querySelector('.demo-list__progress').style.width = pct + '%';
     });
   }
 

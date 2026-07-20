@@ -353,9 +353,6 @@ ul, ol { list-style: none; }
 }
 
 @media (min-width: 860px) {
-  /* Desktop: subject stands left-of-center in the photo, so the text column moves right
-     to sit on open ground instead of competing with her face. Mobile keeps the original
-     full-width, bottom-anchored layout since the crop there is mostly vertical anyway. */
   .hero__content {
     text-align: right;
   }
@@ -372,7 +369,7 @@ ul, ol { list-style: none; }
     margin-right: 0;
   }
   .hero__image {
-    object-position: 22% 22%; /* keep the subject visible on the left, clear of the text column */
+    object-position: 22% 22%;
   }
 }
 
@@ -418,8 +415,7 @@ ul, ol { list-style: none; }
 .line-divider__line.is-visible { transform: scaleX(1); }
 
 /* ==========================================================================
-   SPLIT SCREEN — shared system for About + Proof (full-bleed, no rounded
-   corners, alternating text/media direction via modifier classes)
+   SPLIT SCREEN — shared system for About + Proof
    ========================================================================== */
 
 .split {
@@ -430,7 +426,7 @@ ul, ol { list-style: none; }
   position: relative;
   min-height: 340px;
   overflow: hidden;
-  order: -1; /* on mobile, photo always shows first when stacked */
+  order: -1;
 }
 .split__image {
   position: absolute;
@@ -472,7 +468,7 @@ ul, ol { list-style: none; }
 }
 
 /* ==========================================================================
-   EXPERIENCE — asymmetric, no card containers
+   EXPERIENCE
    ========================================================================== */
 
 .experience {
@@ -502,7 +498,6 @@ ul, ol { list-style: none; }
 }
 .experience .body-text { margin-bottom: 0; }
 
-/* ---- Shared numbered-list system (used by Experience + Process) ---- */
 .numbered-list {
   max-width: var(--content-max);
   margin: var(--space-xl) auto 0;
@@ -605,7 +600,7 @@ ul, ol { list-style: none; }
   border-radius: 2px;
   overflow: hidden;
   margin-top: var(--space-sm);
-  margin-left: calc(34px + 0.9em); /* align under the title, not under the icon */
+  margin-left: calc(34px + 0.9em);
 }
 .demo-list__progress {
   height: 100%;
@@ -631,7 +626,132 @@ ul, ol { list-style: none; }
 }
 
 /* ==========================================================================
-   TESTIMONIALS — single large rotating quote, no cards
+   VIDEO SAMPLES — restyled to match the site's design system
+   (no card borders/shadows, same fonts/colors as everything else)
+   ========================================================================== */
+
+.video-section {
+  max-width: var(--content-max);
+  margin: var(--space-xl) auto 0;
+  padding: 0;
+}
+
+.video-section-heading {
+  max-width: 700px;
+  margin: 0 0 var(--space-lg);
+}
+
+.video-section .section-label {
+  font-family: var(--font-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+
+.video-section h2 {
+  font-family: var(--font-accent);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(1.6rem, 1.3rem + 1.6vw, 2.4rem);
+  line-height: 1.02;
+  margin-bottom: var(--space-sm);
+  color: var(--ink);
+}
+
+.video-intro {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--stone);
+  margin: 0;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.video-card {
+  /* deliberately no border/shadow/background — matches the rest of the site's
+     "no card containers" system; the video itself carries the visual weight */
+}
+
+.performance-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  background: var(--deep);
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+.video-text {
+  padding-top: var(--space-sm);
+}
+
+.video-text h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-bottom: 0.3em;
+  color: var(--ink);
+}
+
+.video-text p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--stone);
+}
+
+@media (max-width: 900px) {
+  .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .video-grid { grid-template-columns: 1fr; }
+  .video-card { max-width: 420px; margin: 0 auto; }
+}
+
+/* ==========================================================================
+   SPOTIFY EMBED — restyled to match the site's design system
+   ========================================================================== */
+
+.spotify-section {
+  max-width: 700px;
+  margin: var(--space-xl) auto 0;
+  padding: 0;
+  text-align: center;
+}
+
+.spotify-section h2 {
+  font-family: var(--font-accent);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.1rem);
+  line-height: 1.05;
+  color: var(--ink);
+  margin-bottom: var(--space-sm);
+}
+
+.spotify-section p {
+  font-family: var(--font-body);
+  color: var(--stone);
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+}
+
+.spotify-section iframe {
+  margin-bottom: var(--space-md);
+}
+
+/* ==========================================================================
+   TESTIMONIALS
    ========================================================================== */
 
 .testimonials {
@@ -654,7 +774,7 @@ ul, ol { list-style: none; }
   position: relative;
   max-width: 780px;
   margin: 0 auto;
-  min-height: 9em; /* reserves space so slide-swap never shifts layout */
+  min-height: 9em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -721,7 +841,7 @@ ul, ol { list-style: none; }
 }
 
 /* ==========================================================================
-   MANIFESTO — standalone statement section, own breathing room
+   MANIFESTO
    ========================================================================== */
 
 .manifesto {
@@ -902,11 +1022,11 @@ ul, ol { list-style: none; }
 .sticky-cta:hover { transform: scale(1.06); }
 
 @media (min-width: 860px) {
-  .sticky-cta { display: none; } /* desktop uses the nav CTA instead */
+  .sticky-cta { display: none; }
 }
 
 /* ==========================================================================
-   SCROLL-REVEAL UTILITY (applied via JS)
+   SCROLL-REVEAL UTILITY
    ========================================================================== */
 
 .reveal {
@@ -917,151 +1037,6 @@ ul, ol { list-style: none; }
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
-}
-.spotify-section{
-    max-width:900px;
-    margin:100px auto;
-    padding:0 24px;
-    text-align:center;
-}
-
-.spotify-section h2{
-    font-family:"Glacial Indifference", sans-serif;
-    font-size:2rem;
-    font-weight:700;
-    text-transform:uppercase;
-    color:#695A42;
-    margin-bottom:20px;
-}
-
-.spotify-section p{
-    font-family:"Glacial Indifference", sans-serif;
-    color:#695A42;
-    line-height:1.8;
-    margin-bottom:35px;
-}
-
-.spotify-btn{
-    display:inline-block;
-    margin-top:30px;
-    padding:14px 30px;
-    background:#695A42;
-    color:#FAF1E1;
-    text-decoration:none;
-    border-radius:999px;
-    font-family:"Glacial Indifference", sans-serif;
-    font-weight:bold;
-    transition:0.3s ease;
-}
-
-.spotify-btn:hover{
-    opacity:0.9;
-    transform:translateY(-2px);
-}
-
-   .video-section {
-    max-width: 1200px;
-    margin: 100px auto;
-    padding: 0 24px;
-    color: #695A42;
-}
-
-.video-section-heading {
-    max-width: 700px;
-    margin: 0 auto 48px;
-    text-align: center;
-}
-
-.video-section .section-label {
-    margin-bottom: 12px;
-    font-family: "Glacial Indifference", sans-serif;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #695A42;
-}
-
-.video-section h2 {
-    margin: 0 0 18px;
-    font-family: "Glacial Indifference", sans-serif;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 700;
-    line-height: 1.05;
-    text-transform: uppercase;
-    color: #695A42;
-}
-
-.video-intro {
-    margin: 0;
-    font-family: "Glacial Indifference", sans-serif;
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: #695A42;
-}
-
-.video-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 28px;
-}
-
-.video-card {
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.3);
-    border: 1px solid rgba(105, 90, 66, 0.2);
-    border-radius: 22px;
-    box-shadow: 0 18px 45px rgba(105, 90, 66, 0.08);
-}
-
-.performance-video {
-    display: block;
-    width: 100%;
-    aspect-ratio: 9 / 16;
-    background: #000;
-    object-fit: cover;
-}
-
-.video-text {
-    padding: 22px;
-}
-
-.video-text h3 {
-    margin: 0 0 8px;
-    font-family: "Glacial Indifference", sans-serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #695A42;
-}
-
-.video-text p {
-    margin: 0;
-    font-family: "Glacial Indifference", sans-serif;
-    line-height: 1.6;
-    color: #695A42;
-}
-
-@media (max-width: 900px) {
-    .video-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 640px) {
-    .video-section {
-        margin: 70px auto;
-        padding: 0 16px;
-    }
-
-    .video-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .video-card {
-        max-width: 440px;
-        margin: 0 auto;
-    }
 }
 </style>
 </head>
@@ -1122,12 +1097,11 @@ ul, ol { list-style: none; }
     </div>
   </section>
 
-  <!-- Signature waveform divider — drawn on scroll, echoes "her voice" -->
   <div class="line-divider" aria-hidden="true">
     <span class="line-divider__line"></span>
   </div>
 
-  <!-- ============ 2. EMOTIONAL PROOF — split screen, media-left (rhythm reversed vs. About) ============ -->
+  <!-- ============ 2. EMOTIONAL PROOF ============ -->
   <section class="split split--media-left proof">
     <div class="split__media">
       <img class="split__image" src="assets/images/performance-bw.jpg" alt="Melis Bulut singt live bei einem Auftritt" loading="lazy">
@@ -1137,13 +1111,10 @@ ul, ol { list-style: none; }
         „Für drei Minuten war der ganze Raum still —<br>
         und dann haben alle geweint."
       </p>
-      <!-- Note: removed the earlier invented "Lea & Jonas" attribution — same issue as the
-           fabricated stats. Replace this with a real quote + real names once available,
-           or leave unattributed as a general atmospheric line. -->
     </div>
   </section>
 
-  <!-- ============ 3. ABOUT — full-bleed split screen (dark panel + photo) ============ -->
+  <!-- ============ 3. ABOUT ============ -->
   <section class="split split--media-right" id="about">
     <div class="split__media">
       <img class="split__image" src="assets/images/portrait.jpg" alt="Porträt von Melis Bulut" loading="lazy">
@@ -1165,7 +1136,7 @@ ul, ol { list-style: none; }
     </div>
   </section>
 
-  <!-- ============ 4. THE EXPERIENCE (USP) — no cards, editorial numbered list ============ -->
+  <!-- ============ 4. THE EXPERIENCE (USP) ============ -->
   <section class="experience">
     <div class="experience__intro">
       <p class="eyebrow">Musikalische Regie</p>
@@ -1251,84 +1222,57 @@ ul, ol { list-style: none; }
     </ul>
     <audio id="demoAudio" preload="none"></audio>
 
-     <section class="video-section" id="videos">
-
-    <div class="video-section-heading">
-        <p class="section-label">Hörproben</p>
+    <div class="video-section" id="videos">
+      <div class="video-section-heading">
+        <span class="section-label">Hörproben</span>
         <h2>Meine Stimme in besonderen Momenten</h2>
         <p class="video-intro">
-            Klicke auf ein Video, um es mit Ton abzuspielen.
+          Klicke auf ein Video, um es mit Ton abzuspielen.
         </p>
+      </div>
+
+      <div class="video-grid">
+        <div class="video-card">
+          <video class="performance-video" controls preload="metadata" playsinline>
+            <source src="assets/video/hoerprobe-1.mp4" type="video/mp4">
+            Dein Browser unterstützt die Wiedergabe dieses Videos leider nicht.
+          </video>
+          <div class="video-text">
+            <h3>Hörprobe 1</h3>
+            <p>Live-Gesang für besondere Augenblicke.</p>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <video class="performance-video" controls preload="metadata" playsinline>
+            <source src="assets/video/hoerprobe-2.mp4" type="video/mp4">
+            Dein Browser unterstützt die Wiedergabe dieses Videos leider nicht.
+          </video>
+          <div class="video-text">
+            <h3>Hörprobe 2</h3>
+            <p>Eine weitere Auswahl aus meinem Repertoire.</p>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <video class="performance-video" controls preload="metadata" playsinline>
+            <source src="assets/video/hoerprobe-3.mp4" type="video/mp4">
+            Dein Browser unterstützt die Wiedergabe dieses Videos leider nicht.
+          </video>
+          <div class="video-text">
+            <h3>Hörprobe 3</h3>
+            <p>Emotionale Live-Musik mit persönlicher Atmosphäre.</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="video-grid">
-
-        <article class="video-card">
-            <video
-                class="performance-video"
-                controls
-                preload="metadata"
-                playsinline>
-                <source
-                    src="music/assets/video/hoerprobe-1.mov"
-                    type="video/mov">
-                Dein Browser unterstützt die Wiedergabe dieses Videos leider nicht.
-            </video>
-
-            <div class="video-text">
-                <h3>Hörprobe 1</h3>
-                <p>Live-Gesang für besondere Augenblicke.</p>
-            </div>
-        </article>
-
-        <article class="video-card">
-            <video
-                class="performance-video"
-                controls
-                preload="metadata"
-                playsinline>
-                <source
-                    src="music/assets/video/hoerprobe-2.mov"
-                    type="video/mov">
-                Dein Browser unterstützt die Wiedergabe dieses Videos leider nicht.
-            </video>
-
-            <div class="video-text">
-                <h3>Hörprobe 2</h3>
-                <p>Eine weitere Auswahl aus meinem Repertoire.</p>
-            </div>
-        </article>
-
-        <article class="video-card">
-            <video
-                class="performance-video"
-                controls
-                preload="metadata"
-                playsinline>
-                <source
-                    src="music/assets/video/hoerprobe-3.mov"
-                    type="video/mov">
-                Dein Browser unterstützt die Wiedergabe dieses Videos leider nicht.
-            </video>
-
-            <div class="video-text">
-                <h3>Hörprobe 3</h3>
-                <p>Emotionale Live-Musik mit persönlicher Atmosphäre.</p>
-            </div>
-        </article>
-
-    </div>
-
-</section>
-<section class="spotify-section">
-
-    <h2>Hör mehr von meinem Repertoire</h2>
-
-    <p>
+    <div class="spotify-section">
+      <h2>Hör mehr von meinem Repertoire</h2>
+      <p>
         Entdecke eine Auswahl der Songs, die ich bei Hochzeiten und besonderen Momenten singe.
-    </p>
-
-    <iframe
+      </p>
+      <iframe
         style="border-radius:16px"
         src="https://open.spotify.com/embed/playlist/6SdQmvSUwvs9suucf9TXhI?utm_source=generator"
         width="100%"
@@ -1337,17 +1281,17 @@ ul, ol { list-style: none; }
         allowfullscreen=""
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="lazy">
-    </iframe>
-
-    <a
+      </iframe>
+      <a
         href="https://open.spotify.com/playlist/6SdQmvSUwvs9suucf9TXhI"
         target="_blank"
         rel="noopener noreferrer"
-        class="spotify-btn">
+        class="btn btn--primary"
+      >
         Playlist auf Spotify öffnen
-    </a>
+      </a>
+    </div>
 
-</section>
     <p class="genre-list">
       Akustisch <span aria-hidden="true">·</span> Pop &amp; Soul <span aria-hidden="true">·</span>
       Klassiker neu interpretiert <span aria-hidden="true">·</span> Türkische Klassiker <span aria-hidden="true">·</span>
@@ -1360,7 +1304,7 @@ ul, ol { list-style: none; }
     </p>
   </section>
 
-  <!-- ============ 6. TESTIMONIALS — single large rotating quote, no card grid ============ -->
+  <!-- ============ 6. TESTIMONIALS ============ -->
   <section class="testimonials">
     <p class="testimonials__label">Stimmen von Paaren</p>
 
@@ -1385,7 +1329,7 @@ ul, ol { list-style: none; }
     </div>
   </section>
 
-  <!-- ============ MANIFESTO — standalone statement, own breathing room ============ -->
+  <!-- ============ MANIFESTO ============ -->
   <section class="manifesto">
     <p class="manifesto__text">
       Ihr werdet euch nicht an jedes Wort erinnern, das an diesem Tag
@@ -1394,7 +1338,7 @@ ul, ol { list-style: none; }
     </p>
   </section>
 
-  <!-- ============ 7. BOOKING PROCESS — same numbered-list system, varied rhythm (left-aligned) ============ -->
+  <!-- ============ 7. BOOKING PROCESS ============ -->
   <section class="process">
     <p class="eyebrow">So einfach ist es</p>
     <h2 class="process__title">Drei Schritte bis zur Zusage</h2>
@@ -1507,18 +1451,11 @@ ul, ol { list-style: none; }
 </a>
 
 <script>
-/* ==========================================================================
-   MELIS BULUT — INTERACTIONS
-   Vanilla JS only. No dependencies, no build step.
-   ========================================================================== */
-
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ---- Footer year ---- */
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ---- Nav background on scroll ---- */
   const nav = document.getElementById('nav');
   if (nav) {
     const toggleNav = () => {
@@ -1529,7 +1466,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', toggleNav, { passive: true });
   }
 
-  /* ---- Scroll-reveal for content blocks ---- */
   const revealTargets = document.querySelectorAll(
     '.split__text, .split__media, .numbered-list__item, .testimonial-slider, ' +
     '.faq__item, .repertoire, .manifesto__text, .final-cta__headline'
@@ -1547,7 +1483,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   revealTargets.forEach(el => revealObserver.observe(el));
 
-  /* ---- Signature line divider draw-in ---- */
   const dividerLines = document.querySelectorAll('.line-divider__line');
   const dividerObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -1559,7 +1494,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.4 });
   dividerLines.forEach(line => dividerObserver.observe(line));
 
-  /* ---- Multi-track demo list ---- */
   const demoList = document.querySelector('[data-demo-list]');
   const demoAudio = document.getElementById('demoAudio');
 
@@ -1583,7 +1517,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     items.forEach((item) => {
       const toggle = item.querySelector('.demo-list__toggle');
-      const progress = item.querySelector('.demo-list__progress');
       const src = item.dataset.src;
 
       toggle.addEventListener('click', () => {
@@ -1601,7 +1534,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setActive(item);
         demoAudio.play().catch(() => {
-          // Fails gracefully until the real files are added under assets/audio/
           item.querySelector('.demo-list__title').textContent += ' (Audio folgt in Kürze)';
           resetIcon(item);
         });
@@ -1638,7 +1570,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---- Testimonial slider ---- */
   const slider = document.querySelector('[data-testimonial-slider]');
   if (slider) {
     const slides = slider.querySelectorAll('.testimonial-slide');
@@ -1665,7 +1596,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dots.forEach((dot) => {
       dot.addEventListener('click', () => {
         showSlide(parseInt(dot.dataset.index, 10));
-        startAuto(); // reset the timer after manual interaction
+        startAuto();
       });
     });
 
@@ -1673,7 +1604,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
-
 </script>
 </body>
 </html>

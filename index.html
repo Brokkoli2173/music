@@ -681,13 +681,25 @@ ul, ol { list-style: none; }
      "no card containers" system; the video itself carries the visual weight */
 }
 
+.video-frame {
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
 .performance-video {
   display: block;
   width: 100%;
   aspect-ratio: 9 / 16;
   background: var(--deep);
   object-fit: cover;
-  border-radius: var(--radius-sm);
+  transition: transform 0.6s var(--ease);
+}
+.video-card:hover .performance-video,
+.video-card:focus-within .performance-video {
+  transform: scale(1.045);
+}
+@media (prefers-reduced-motion: reduce) {
+  .performance-video { transition: none; }
 }
 
 .video-text {
@@ -1233,10 +1245,12 @@ ul, ol { list-style: none; }
 
       <div class="video-grid">
         <div class="video-card">
-          <video class="performance-video" controls preload="metadata" playsinline>
-            <source src="assets/video/hoerprobe-1.mp4" type="video/mp4">
-            Dein Browser unterstützt die Wiedergabe dieses Videos leider nicht.
-          </video>
+          <div class="video-frame">
+            <video class="performance-video" controls preload="metadata" playsinline poster="assets/video/hoerprobe-1-poster.jpg">
+              <source src="assets/video/hoerprobe-1.mp4" type="video/mp4">
+              Dein Browser unterstützt die Wiedergabe dieses Videos leider nicht.
+            </video>
+          </div>
           <div class="video-text">
             <h3>Hörprobe 1</h3>
             <p>Live-Gesang für besondere Augenblicke.</p>
@@ -1244,10 +1258,12 @@ ul, ol { list-style: none; }
         </div>
 
         <div class="video-card">
-          <video class="performance-video" controls preload="metadata" playsinline>
-            <source src="assets/video/hoerprobe-2.mp4" type="video/mp4">
-            Dein Browser unterstützt die Wiedergabe dieses Videos leider nicht.
-          </video>
+          <div class="video-frame">
+            <video class="performance-video" controls preload="metadata" playsinline poster="assets/video/hoerprobe-2-poster.jpg">
+              <source src="assets/video/hoerprobe-2.mp4" type="video/mp4">
+              Dein Browser unterstützt die Wiedergabe dieses Videos leider nicht.
+            </video>
+          </div>
           <div class="video-text">
             <h3>Hörprobe 2</h3>
             <p>Eine weitere Auswahl aus meinem Repertoire.</p>
@@ -1255,10 +1271,12 @@ ul, ol { list-style: none; }
         </div>
 
         <div class="video-card">
-          <video class="performance-video" controls preload="metadata" playsinline>
-            <source src="assets/video/hoerprobe-3.mp4" type="video/mp4">
-            Dein Browser unterstützt die Wiedergabe dieses Videos leider nicht.
-          </video>
+          <div class="video-frame">
+            <video class="performance-video" controls preload="metadata" playsinline poster="assets/video/hoerprobe-3-poster.jpg">
+              <source src="assets/video/hoerprobe-3.mp4" type="video/mp4">
+              Dein Browser unterstützt die Wiedergabe dieses Videos leider nicht.
+            </video>
+          </div>
           <div class="video-text">
             <h3>Hörprobe 3</h3>
             <p>Emotionale Live-Musik mit persönlicher Atmosphäre.</p>

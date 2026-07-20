@@ -958,6 +958,111 @@ ul, ol { list-style: none; }
     opacity:0.9;
     transform:translateY(-2px);
 }
+
+   .video-section {
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 0 24px;
+    color: #695A42;
+}
+
+.video-section-heading {
+    max-width: 700px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.video-section .section-label {
+    margin-bottom: 12px;
+    font-family: "Glacial Indifference", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #695A42;
+}
+
+.video-section h2 {
+    margin: 0 0 18px;
+    font-family: "Glacial Indifference", sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    text-transform: uppercase;
+    color: #695A42;
+}
+
+.video-intro {
+    margin: 0;
+    font-family: "Glacial Indifference", sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #695A42;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.video-card {
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(105, 90, 66, 0.2);
+    border-radius: 22px;
+    box-shadow: 0 18px 45px rgba(105, 90, 66, 0.08);
+}
+
+.performance-video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    background: #000;
+    object-fit: cover;
+}
+
+.video-text {
+    padding: 22px;
+}
+
+.video-text h3 {
+    margin: 0 0 8px;
+    font-family: "Glacial Indifference", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #695A42;
+}
+
+.video-text p {
+    margin: 0;
+    font-family: "Glacial Indifference", sans-serif;
+    line-height: 1.6;
+    color: #695A42;
+}
+
+@media (max-width: 900px) {
+    .video-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .video-section {
+        margin: 70px auto;
+        padding: 0 16px;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-card {
+        max-width: 440px;
+        margin: 0 auto;
+    }
+}
 </style>
 </head>
 <body>
@@ -1145,6 +1250,76 @@ ul, ol { list-style: none; }
       </li>
     </ul>
     <audio id="demoAudio" preload="none"></audio>
+
+     <section class="video-section" id="videos">
+
+    <div class="video-section-heading">
+        <p class="section-label">Hörproben</p>
+        <h2>Meine Stimme in besonderen Momenten</h2>
+        <p class="video-intro">
+            Klicke auf ein Video, um es mit Ton abzuspielen.
+        </p>
+    </div>
+
+    <div class="video-grid">
+
+        <article class="video-card">
+            <video
+                class="performance-video"
+                controls
+                preload="metadata"
+                playsinline>
+                <source
+                    src="music/assets/videos/hoerprobe-1.mp4"
+                    type="video/mp4">
+                Dein Browser unterstützt die Wiedergabe dieses Videos leider nicht.
+            </video>
+
+            <div class="video-text">
+                <h3>Hörprobe 1</h3>
+                <p>Live-Gesang für besondere Augenblicke.</p>
+            </div>
+        </article>
+
+        <article class="video-card">
+            <video
+                class="performance-video"
+                controls
+                preload="metadata"
+                playsinline>
+                <source
+                    src="music/assets/videos/hoerprobe-2.mp4"
+                    type="video/mp4">
+                Dein Browser unterstützt die Wiedergabe dieses Videos leider nicht.
+            </video>
+
+            <div class="video-text">
+                <h3>Hörprobe 2</h3>
+                <p>Eine weitere Auswahl aus meinem Repertoire.</p>
+            </div>
+        </article>
+
+        <article class="video-card">
+            <video
+                class="performance-video"
+                controls
+                preload="metadata"
+                playsinline>
+                <source
+                    src="music/assets/videos/hoerprobe-3.mp4"
+                    type="video/mp4">
+                Dein Browser unterstützt die Wiedergabe dieses Videos leider nicht.
+            </video>
+
+            <div class="video-text">
+                <h3>Hörprobe 3</h3>
+                <p>Emotionale Live-Musik mit persönlicher Atmosphäre.</p>
+            </div>
+        </article>
+
+    </div>
+
+</section>
 <section class="spotify-section">
 
     <h2>Hör mehr von meinem Repertoire</h2>

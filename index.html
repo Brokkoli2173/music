@@ -921,27 +921,31 @@ ul, ol { list-style: none; }
 </style>
 </head>
 <body>
-
-   .spotify-section{
-    max-width:900px;
-    margin:100px auto;
-    padding:0 24px;
-    text-align:center;
-}
-
-.spotify-section h2{
-    font-family:"Glacial Indifference",sans-serif;
-    font-weight:bold;
-    text-transform:uppercase;
-    color:#695A42;
-    margin-bottom:20px;
 }
 
 .spotify-section p{
-    font-family:"Glacial Indifference",sans-serif;
+    font-family:"Glacial Indifference", sans-serif;
     color:#695A42;
     line-height:1.8;
-    margin-bottom:40px;
+    margin-bottom:35px;
+}
+
+.spotify-btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:14px 30px;
+    background:#695A42;
+    color:#FAF1E1;
+    text-decoration:none;
+    border-radius:999px;
+    font-family:"Glacial Indifference", sans-serif;
+    font-weight:bold;
+    transition:0.3s ease;
+}
+
+.spotify-btn:hover{
+    opacity:0.9;
+    transform:translateY(-2px);
 }
 <!-- ============ SKIP LINK (Accessibility) ============ -->
 <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -1128,14 +1132,15 @@ ul, ol { list-style: none; }
     <audio id="demoAudio" preload="none"></audio>
 <section class="spotify-section">
 
-    <h2>Meine Spotify Playlist</h2>
+   
+  <section class="spotify-section">
+
+    <h2>Hör mehr von meinem Repertoire</h2>
 
     <p>
-        Du möchtest mehr von meiner Stimme hören?
-        Hier findest du eine Auswahl meines Repertoires.
+        Entdecke eine Auswahl der Songs, die ich bei Hochzeiten und besonderen Momenten singe.
     </p>
 
-  
     <iframe
         style="border-radius:16px"
         src="https://open.spotify.com/embed/playlist/6SdQmvSUwvs9suucf9TXhI?utm_source=generator"
@@ -1146,6 +1151,16 @@ ul, ol { list-style: none; }
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="lazy">
     </iframe>
+
+    <a
+        href="https://open.spotify.com/playlist/6SdQmvSUwvs9suucf9TXhI"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="spotify-btn">
+        Playlist auf Spotify öffnen
+    </a>
+
+</section>
 
 </section>
     <p class="genre-list">

@@ -12,10 +12,8 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/images/og-cover.jpg">
 
-<!-- Fonts: Fraunces (display, warm serif with real personality) + Inter (clean utility body) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Font: Glacial Indifference -->
+<link href="https://fonts.cdnfonts.com/css/glacial-indifference" rel="stylesheet">
 
 <style>
 /* ==========================================================================
@@ -25,21 +23,21 @@
 
 :root {
   /* ---- Color — light beige theme with a clean, bright gold accent ---- */
-  --ink: #241a10;          /* dark warm text color, used on the light beige backgrounds */
+  --ink: #695A42;          /* primary text color on light backgrounds */
   --deep: #0c0705;         /* stays dark — only used for the hero photo's legibility scrim */
-  --ivory: #f4e9d3;        /* primary background — light beige */
-  --ivory-dim: #ecdbb9;    /* slightly deeper beige for subtle section alternation */
+  --ivory: #FAF1E1;        /* primary light background */
+  --ivory-dim: #FAF1E1;    /* unified light background */
   --gold: #c9992a;         /* signature accent — clean, bright gold (not muddy/brown) */
   --gold-soft: #ddb555;    /* lighter accent for hovers */
-  --stone: #8a7a63;        /* secondary / muted text — warm taupe, on the beige backgrounds */
-  --stone-dark: #8a7a63;   /* kept equal to --stone now that every section shares the light theme */
+  --stone: #695A42;        /* secondary text color */
+  --stone-dark: #695A42;
   --line-on-dark: rgba(244, 233, 211, 0.14);
-  --line-on-light: rgba(36, 26, 16, 0.12);
+  --line-on-light: rgba(105, 90, 66, 0.18);
 
   /* ---- Type ---- */
-  --font-display: "Fraunces", Georgia, serif;
-  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-accent: "Archivo", "Inter", sans-serif; /* bold expanded grotesk for labels/badges */
+  --font-display: "Glacial Indifference", Arial, sans-serif;
+  --font-body: "Glacial Indifference", Arial, sans-serif;
+  --font-accent: "Glacial Indifference", Arial, sans-serif;
 
   /* ---- Spacing scale (fluid) ---- */
   --space-xs: clamp(0.5rem, 0.45rem + 0.3vw, 0.75rem);
@@ -125,7 +123,7 @@ ul, ol { list-style: none; }
 
 .section-title {
   font-family: var(--font-accent);
-  font-weight: 900;
+  font-weight: 700;
   text-transform: uppercase;
   font-size: clamp(2.1rem, 1.6rem + 2.5vw, 3.6rem);
   line-height: 0.98;
@@ -133,10 +131,10 @@ ul, ol { list-style: none; }
   margin-bottom: var(--space-md);
 }
 .section-title em {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 500;
-  text-transform: none;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
   color: var(--gold);
 }
 .section-title--center { text-align: center; max-width: 760px; margin-left: auto; margin-right: auto; }
@@ -214,7 +212,7 @@ ul, ol { list-style: none; }
 }
 .nav__name {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: 1.15rem;
   color: var(--ivory);
   transition: color var(--dur) var(--ease);
@@ -323,7 +321,7 @@ ul, ol { list-style: none; }
 
 .hero__headline {
   font-family: var(--font-accent);
-  font-weight: 900;
+  font-weight: 700;
   text-transform: uppercase;
   font-size: clamp(2.6rem, 1.9rem + 4.4vw, 5.6rem);
   line-height: 0.94;
@@ -332,10 +330,10 @@ ul, ol { list-style: none; }
   text-shadow: 0 2px 24px rgba(7, 4, 3, 0.35);
 }
 .hero__headline em {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 500;
-  text-transform: none;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
   color: var(--gold);
 }
 
@@ -452,7 +450,7 @@ ul, ol { list-style: none; }
 
 .proof__quote {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: clamp(1.3rem, 1.05rem + 1.1vw, 1.9rem);
   color: var(--ink);
   line-height: 1.5;
@@ -485,7 +483,7 @@ ul, ol { list-style: none; }
 }
 .experience__title {
   font-family: var(--font-accent);
-  font-weight: 900;
+  font-weight: 700;
   text-transform: uppercase;
   font-size: clamp(2.2rem, 1.6rem + 3vw, 4rem);
   line-height: 1;
@@ -494,10 +492,10 @@ ul, ol { list-style: none; }
   margin-bottom: var(--space-md);
 }
 .experience__title em {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 500;
-  text-transform: none;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
   color: var(--gold);
 }
 .experience .body-text { margin-bottom: 0; }
@@ -519,7 +517,7 @@ ul, ol { list-style: none; }
 .numbered-list__item:last-child { border-bottom: 1px solid var(--line-on-light); }
 .numbered-list__num {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
   font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.4rem);
   color: var(--gold);
@@ -626,7 +624,7 @@ ul, ol { list-style: none; }
   margin-top: var(--space-md);
   font-size: 0.85rem;
   color: var(--stone);
-  font-style: italic;
+  font-style: normal;
   max-width: 460px;
 }
 
@@ -665,7 +663,7 @@ ul, ol { list-style: none; }
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: 7rem;
   color: var(--gold);
   opacity: 0.16;
@@ -692,7 +690,7 @@ ul, ol { list-style: none; }
 }
 .testimonial-slide p {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
   font-size: clamp(1.3rem, 1.05rem + 1.1vw, 2rem);
   line-height: 1.5;
@@ -739,8 +737,8 @@ ul, ol { list-style: none; }
   text-align: center;
 }
 .manifesto__text em {
-  font-style: italic;
-  font-weight: 500;
+  font-style: normal;
+  font-weight: 700;
   color: var(--gold);
 }
 
@@ -755,7 +753,7 @@ ul, ol { list-style: none; }
 }
 .process__title {
   font-family: var(--font-accent);
-  font-weight: 900;
+  font-weight: 700;
   text-transform: uppercase;
   font-size: clamp(1.8rem, 1.4rem + 2vw, 2.8rem);
   line-height: 1.02;
@@ -819,16 +817,17 @@ ul, ol { list-style: none; }
 }
 .final-cta__headline {
   font-family: var(--font-accent);
-  font-weight: 900;
+  font-weight: 700;
   text-transform: uppercase;
   font-size: clamp(2rem, 1.6rem + 2.5vw, 3.4rem);
   line-height: 1;
   margin-bottom: var(--space-sm);
 }
 .final-cta__headline em {
-  font-family: var(--font-display);
-  font-style: italic;
-  text-transform: none;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
   color: var(--gold);
 }
 .final-cta__sub {
@@ -852,7 +851,7 @@ ul, ol { list-style: none; }
 }
 .footer__name {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   color: var(--ink);
   font-size: 1.2rem;
 }

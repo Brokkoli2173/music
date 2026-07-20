@@ -922,6 +922,27 @@ ul, ol { list-style: none; }
 </head>
 <body>
 
+   .spotify-section{
+    max-width:900px;
+    margin:100px auto;
+    padding:0 24px;
+    text-align:center;
+}
+
+.spotify-section h2{
+    font-family:"Glacial Indifference",sans-serif;
+    font-weight:bold;
+    text-transform:uppercase;
+    color:#695A42;
+    margin-bottom:20px;
+}
+
+.spotify-section p{
+    font-family:"Glacial Indifference",sans-serif;
+    color:#695A42;
+    line-height:1.8;
+    margin-bottom:40px;
+}
 <!-- ============ SKIP LINK (Accessibility) ============ -->
 <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
@@ -1105,7 +1126,27 @@ ul, ol { list-style: none; }
       </li>
     </ul>
     <audio id="demoAudio" preload="none"></audio>
+<section class="spotify-section">
 
+    <h2>Meine Spotify Playlist</h2>
+
+    <p>
+        Du möchtest mehr von meiner Stimme hören?
+        Hier findest du eine Auswahl meines Repertoires.
+    </p>
+
+    <iframe
+        style="border-radius:16px"
+        src="https://open.spotify.com/embed/playlist/DEINE_PLAYLIST_ID"
+        width="100%"
+        height="352"
+        frameborder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+    </iframe>
+
+</section>
     <p class="genre-list">
       Akustisch <span aria-hidden="true">·</span> Pop &amp; Soul <span aria-hidden="true">·</span>
       Klassiker neu interpretiert <span aria-hidden="true">·</span> Türkische Klassiker <span aria-hidden="true">·</span>

@@ -1,40 +1,270 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Melis Bulut — Hochzeitssängerin</title>
-<meta name="description" content="Melis Bulut begleitet eure Hochzeit mit Live-Gesang, der genau auf euren Tag abgestimmt ist. Termine jetzt per WhatsApp anfragen.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melis Bulut — Hochzeitssängerin</title>
+    <meta name="description" content="Melis Bulut begleitet eure Hochzeit mit Live-Gesang, der genau auf euren Tag abgestimmt ist. Termine jetzt per WhatsApp anfragen.">
 
-<!-- Open Graph -->
-<meta property="og:title" content="Melis Bulut — Hochzeitssängerin">
-<meta property="og:description" content="Live-Musik, die den Moment trägt. Erfahrt mehr über Melis Bulut und sichert euch euer Datum.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="assets/images/og-cover.jpg">
+    <meta property="og:title" content="Melis Bulut — Hochzeitssängerin">
+    <meta property="og:description" content="Live-Musik, die den Moment trägt. Erfahrt mehr über Melis Bulut und sichert euch euer Datum.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/og-cover.jpg">
 
-<!-- Font: Glacial Indifference -->
-<link href="https://fonts.cdnfonts.com/css/glacial-indifference" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/glacial-indifference" rel="stylesheet">
 
-<style>
-/* ==========================================================================
-   MELIS BULUT — DESIGN SYSTEM
-   Mobile-first. Every value derives from the token set below.
-   ========================================================================== */
+    <style>
+        /* ==========================================================================
+           MELIS BULUT — DESIGN SYSTEM & TOKENS
+           ========================================================================== */
+        :root {
+            --ink: #695A42;          /* Haupttextfarbe */
+            --deep: #0c0705;         /* Dunkler Kontrast (z.B. für Text auf Hero-Bild) */
+            --ivory: #FAF1E1;        /* Haupt-Hintergrundfarbe */
+            --ivory-dim: #F3E9D4;    /* Leicht abgedunkelt für Sektionen */
+            --gold: #c9992a;         /* Signatur-Gold */
+            --gold-soft: #ddb555;    /* Hover-Gold */
+            --stone: #695A42;        /* Sekundärtext */
+            --line-on-light: rgba(105, 90, 66, 0.18);
+            
+            --font-sans: 'Glacial Indifference', sans-serif;
+            
+            --space-sm: 0.75rem;
+            --space-md: 1.5rem;
+            --space-lg: 3rem;
+            --space-xl: 5rem;
+            
+            --max-width: 1200px;
+        }
 
-:root {
-  /* ---- Color — light beige theme with a clean, bright gold accent ---- */
-  --ink: #695A42;          /* primary text color on light backgrounds */
-  --deep: #0c0705;         /* stays dark — only used for the hero photo's legibility scrim */
-  --ivory: #FAF1E1;        /* primary light background */
-  --ivory-dim: #FAF1E1;    /* unified light background */
-  --gold: #c9992a;         /* signature accent — clean, bright gold (not muddy/brown) */
-  --gold-soft: #ddb555;    /* lighter accent for hovers */
-  --stone: #695A42;        /* secondary text color */
-  --stone-dark: #695A42;
-  --line-on-dark: rgba(244, 233, 211, 0.14);
-  --line-on-light: rgba(105, 90, 66, 0.18);
+        /* ==========================================================================
+           BASE STYLES
+           ========================================================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-  /* ---- Type ---- */
+        body {
+            font-family: var(--font-sans), sans-serif;
+            background-color: var(--ivory);
+            color: var(--ink);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: var(--space-md);
+            text-transform: uppercase;
+        }
+
+        h1 { font-size: 2.5rem; text-align: center; }
+        h2 { font-size: 2rem; text-align: center; color: var(--gold); }
+        p { font-size: 1.1rem; margin-bottom: var(--space-md); }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        /* ==========================================================================
+           NAVIGATION & UTILITIES
+           ========================================================================== */
+        header {
+            padding: var(--space-md) 0;
+            border-bottom: 1px solid var(--line-on-light);
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--ink);
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        /* Buttons */
+        .btn-whatsapp {
+            display: inline-block;
+            background-color: #25D366; /* WhatsApp Grün */
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            background-color: #20ba5a;
+        }
+
+        /* ==========================================================================
+           SECTIONS
+           ========================================================================== */
+        section {
+            padding: var(--space-xl) 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(12, 7, 5, 0.4), rgba(12, 7, 5, 0.5)), url('assets/images/hero-bg.jpg') center/cover no-repeat;
+            color: #fff;
+            text-align: center;
+            padding: var(--space-xl) 0;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            color: var(--ivory);
+            font-size: 3rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto var(--space-lg) auto;
+        }
+
+        /* Über mich Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Repertoire Section */
+        .bg-dim {
+            background-color: var(--ivory-dim);
+        }
+
+        .repertoire-list {
+            list-style: none;
+            max-width: 600px;
+            margin: var(--space-lg) auto 0 auto;
+        }
+
+        .repertoire-list li {
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid var(--line-on-light);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Kontakt Section */
+        .cta-section {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--ink);
+            color: var(--ivory);
+            text-align: center;
+            padding: var(--space-lg) 0;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">Melis Bulut</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Live-Musik, die den Moment trägt</h1>
+            <p>Eure Hochzeit. Eure Emotionen. Begleitet von professionellem Gesang, der genau auf euren besonderen Tag abgestimmt ist.</p>
+            <a href="https://wa.me/TELEFONNUMMER?text=Hallo%20Melis,%20ich%20interessiere%20mich%20für%20deinen%20Gesang%20auf%20unserer%20Hochzeit!" class="btn-whatsapp" target="_blank" rel="noopener">Jetzt Termin via WhatsApp anfragen</a>
+        </div>
+    </section>
+
+    <section id="ueber-mich">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-img">
+                    <img src="assets/images/melis-profil.jpg" alt="Melis Bulut — Hochzeitssängerin" onerror="this.style.background='#695A42'; this.style.height='400px';">
+                </div>
+                <div class="about-text">
+                    <h2>Hi, ich bin Melis</h2>
+                    <p>Musik ist die Sprache der Emotionen. Es erfüllt mich jedes Mal aufs Neue mit tiefer Freude, Paare an ihrem wichtigsten Tag im Leben begleiten zu dürfen. Ob bei der kirchlichen, standesamtlichen oder freien Trauung sowie beim anschließenden Sektempfang – ich verleihe euren Lieblingssongs eine ganz persönliche Note.</p>
+                    <p>Mit viel Gefühl, Professionalität und Zuverlässigkeit sorge ich dafür, dass ihr euch voll und ganz auf den Moment einlassen könnt.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="repertoire" class="bg-dim">
+        <div class="container">
+            <h2>Hörproben & Repertoire</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto;">Ein kleiner Auszug aus Songs, die ich besonders gerne für euch interpretiere. Euer ganz persönlicher Wunschsong ist natürlich auch möglich!</p>
+            
+            <ul class="repertoire-list">
+                <li><span>Ja (Silbermond)</span> <strong>Trauung</strong></li>
+                <li><span>Hallelujah (Leonard Cohen)</span> <strong>Klassiker</strong></li>
+                <li><span>You Are The Reason (Calum Scott)</span> <strong>Modern</strong></li>
+                <li><span>Das Beste (Silbermond)</span> <strong>Emotion</strong></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="kontakt">
+        <div class="container">
+            <div class="cta-section">
+                <h2>Lasst uns euren Tag unvergesslich machen</h2>
+                <p>Sichert euch rechtzeitig euer Datum. Schreibt mir ganz unkompliziert eine Nachricht mit eurem Wunschtermin und dem Hochzeitsort.</p>
+                <a href="https://wa.me/TELEFONNUMMER?text=Hallo%20Melis,%20ich%20interessiere%20mich%20für%20deinen%20Gesang%20auf%20unserer%20Hochzeit!" class="btn-whatsapp" target="_blank" rel="noopener">Jetzt Anfrage senden</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Melis Bulut — Hochzeitssängerin. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+</body>
+</html>  /* ---- Type ---- */
   --font-display: "Glacial Indifference", Arial, sans-serif;
   --font-body: "Glacial Indifference", Arial, sans-serif;
   --font-accent: "Glacial Indifference", Arial, sans-serif;

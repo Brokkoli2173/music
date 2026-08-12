@@ -238,16 +238,8 @@ ul, ol { list-style: none; }
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
-.nav__name {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.15rem;
-  color: var(--ivory);
-  transition: color var(--dur) var(--ease);
-}
-.nav.is-scrolled .nav__name { color: var(--ink); }
 .nav__cta {
   display: none; /* revealed on desktop; mobile uses sticky floating CTA instead */
   font-size: 0.85rem;
@@ -277,7 +269,7 @@ ul, ol { list-style: none; }
 
 .hero {
   position: relative;
-  min-height: 78svh;
+  min-height: 92svh;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -323,7 +315,7 @@ ul, ol { list-style: none; }
   max-width: var(--content-max);
   width: 100%;
   margin: 0 auto;
-  padding: 0 var(--space-md) var(--space-2xl);
+  padding: var(--space-xl) var(--space-md) var(--space-2xl);
   color: var(--ivory);
 }
 
@@ -1072,7 +1064,6 @@ ul, ol { list-style: none; }
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a href="#top" class="nav__name">Mel</a>
     <a
       class="nav__cta"
       href="https://wa.me/491234567890?text=Hallo%20Mel%2C%20wir%20planen%20unsere%20Hochzeit%20und%20würden%20gerne%20mit%20dir%20sprechen."
@@ -1102,8 +1093,8 @@ ul, ol { list-style: none; }
       </h1>
       <div class="hero__divider" aria-hidden="true"></div>
       <p class="hero__sub">
-        Ich bin Mel und begleite eure Hochzeit mit Live-Gesang —
-        persönlich, modern und passend zu euch.
+        Ich bin Mel. Sängerin für Hochzeiten und all die Momente, zu denen
+        die richtige Musik gehört.
       </p>
       <a
         class="btn btn--primary"
@@ -1158,7 +1149,7 @@ ul, ol { list-style: none; }
         <em>Eure Musik.</em>
       </h2>
       <p class="body-text">
-        Keine Hochzeit klingt gleich — und das soll sie auch nicht. Gemeinsam
+        Keine Hochzeit klingt gleich, und das soll sie auch nicht. Gemeinsam
         schauen wir, welche Songs zu euch passen und an welchen Stellen
         Live-Musik euren Tag begleiten soll.
       </p>
@@ -1339,8 +1330,8 @@ ul, ol { list-style: none; }
       <span class="testimonial-slider__mark" aria-hidden="true">„</span>
 
       <blockquote class="testimonial-slide is-active">
-        <p>Manchmal denke ich, dass Menschen mit so viel Talent einfach zu wenig Aufmerksamkeit bekommen … ich könnte mir das rund um die Uhr anhören.</p>
-        <cite>Xenia</cite>
+        <p>Sehr besondere Stimme, wahnsinnig schön.</p>
+        <cite>Paula &amp; Maxi</cite>
       </blockquote>
       <blockquote class="testimonial-slide">
         <p>Einfach traumhaft schön und mit so viel Gefühl dabei — ich hab's mir gefühlt hundertmal angeschaut.</p>
@@ -1457,7 +1448,7 @@ ul, ol { list-style: none; }
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
   <div class="footer__inner">
-    <p class="footer__name">Mel Bulut</p>
+    <p class="footer__name">Mel · Wedding &amp; Event Singer</p>
     <p class="footer__tagline">Hochzeitssängerin · Deutschlandweit &amp; international</p>
     <div class="footer__links">
       <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>

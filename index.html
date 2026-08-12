@@ -31,8 +31,8 @@
   --ivory-dim: #e7ddd1;    /* Warm Beige — secondary background for subtle section alternation */
   --taupe: #b8a899;        /* Taupe — buttons, hover states, small graphic elements */
   --taupe-dark: #a3907d;   /* darker taupe for button hover (spec: hover = slightly darker, not lighter) */
-  --gold: #5f7057;         /* Sage (from palette D) — replaces gold as the accent, used sparingly: hairlines, numerals, small highlights */
-  --gold-soft: #839179;    /* lighter sage, for the rare hover on an accent-colored element */
+  --gold: #cea44a;         /* Amber-gold — lighter and less saturated than before, still reads as gold not yellow */
+  --gold-soft: #ddbd72;    /* lighter gold, for the rare hover on an accent-colored element */
   --stone: #8d7f70;        /* secondary / muted text — warm muted brown, between espresso and taupe */
   --stone-dark: #8d7f70;
   --line-on-dark: rgba(248, 245, 240, 0.14);
@@ -434,7 +434,8 @@ ul, ol { list-style: none; }
   font-family: var(--font-display);
   font-style: normal;
   font-weight: 500;
-  color: var(--gold);
+  color: var(--ivory);
+  text-shadow: 0 0 28px rgba(206, 164, 74, 0.55), 0 2px 24px rgba(7, 4, 3, 0.35);
 }
 
 .hero__sub {

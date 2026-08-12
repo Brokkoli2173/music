@@ -24,15 +24,15 @@
    ========================================================================== */
 
 :root {
-  /* ---- Color — editorial luxury palette (Ivory / Espresso / Taupe / Champagne Gold) ---- */
+  /* ---- Color — Ivory / Espresso / Taupe base with a Sage accent (mix of palettes A + D, no gold) ---- */
   --ink: #4a4038;          /* Espresso — primary text color, never pure black */
   --deep: #0c0705;         /* stays dark — only used for the hero photo's legibility scrim */
   --ivory: #f8f5f0;        /* primary background — Ivory, ~70% of the page */
   --ivory-dim: #e7ddd1;    /* Warm Beige — secondary background for subtle section alternation */
   --taupe: #b8a899;        /* Taupe — buttons, hover states, small graphic elements */
   --taupe-dark: #a3907d;   /* darker taupe for button hover (spec: hover = slightly darker, not lighter) */
-  --gold: #c8a46a;         /* Champagne Gold — used sparingly: hairlines, numerals, small highlights only */
-  --gold-soft: #d8bd8c;    /* lighter gold, for the rare hover on a gold-colored element */
+  --gold: #5f7057;         /* Sage (from palette D) — replaces gold as the accent, used sparingly: hairlines, numerals, small highlights */
+  --gold-soft: #839179;    /* lighter sage, for the rare hover on an accent-colored element */
   --stone: #8d7f70;        /* secondary / muted text — warm muted brown, between espresso and taupe */
   --stone-dark: #8d7f70;
   --line-on-dark: rgba(248, 245, 240, 0.14);
@@ -234,12 +234,70 @@ ul, ol { list-style: none; }
   -webkit-backdrop-filter: blur(12px);
 }
 .nav__inner {
+  position: relative;
   max-width: var(--content-max);
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  gap: var(--space-md);
 }
+
+/* ---- Nav links: dropdown panel on mobile, inline row on desktop ---- */
+.nav__links {
+  position: absolute;
+  top: calc(100% + var(--space-sm));
+  left: calc(var(--space-md) * -1);
+  right: calc(var(--space-md) * -1);
+  display: flex;
+  flex-direction: column;
+  background: rgba(242, 230, 207, 0.97);
+  backdrop-filter: blur(12px);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s var(--ease);
+  order: 3;
+}
+.nav__links.is-open {
+  max-height: 400px;
+}
+.nav__links a {
+  padding: 1em var(--space-md);
+  color: var(--ink);
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--line-on-light);
+  transition: color var(--dur) var(--ease);
+}
+.nav__links a:hover {
+  color: var(--gold);
+}
+
+/* ---- Mobile hamburger toggle ---- */
+.nav__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  order: 2;
+}
+.nav__toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--ivory);
+  border-radius: 2px;
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+}
+.nav.is-scrolled .nav__toggle span { background: var(--ink); }
+.nav__toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.nav__toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav__toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
 .nav__cta {
   display: none; /* revealed on desktop; mobile uses sticky floating CTA instead */
   font-size: 0.85rem;
@@ -249,6 +307,7 @@ ul, ol { list-style: none; }
   border-radius: 999px;
   color: var(--ivory);
   transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+  order: 1;
 }
 .nav.is-scrolled .nav__cta {
   color: var(--ink);
@@ -260,7 +319,27 @@ ul, ol { list-style: none; }
 }
 
 @media (min-width: 860px) {
-  .nav__cta { display: inline-flex; }
+  .nav__inner { justify-content: space-between; }
+  .nav__cta { display: inline-flex; order: 2; }
+  .nav__toggle { display: none; }
+  .nav__links {
+    position: static;
+    flex-direction: row;
+    gap: 2rem;
+    max-height: none;
+    overflow: visible;
+    background: none;
+    backdrop-filter: none;
+    width: auto;
+    order: 1;
+  }
+  .nav__links a {
+    padding: 0;
+    border-bottom: none;
+    font-size: 0.9rem;
+    color: var(--ivory);
+  }
+  .nav.is-scrolled .nav__links a { color: var(--ink); }
 }
 
 /* ==========================================================================
@@ -1065,6 +1144,12 @@ ul, ol { list-style: none; }
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="nav__inner">
+    <nav class="nav__links" id="navLinks" aria-label="Hauptnavigation">
+      <a href="#about">About</a>
+      <a href="#weddings">Weddings</a>
+      <a href="#repertoire">Repertoire</a>
+      <a href="#faq">FAQ</a>
+    </nav>
     <a
       class="nav__cta"
       href="mailto:info@mel-eventsinger.com?subject=Hochzeitsanfrage&body=Hallo%20Mel%2C%20wir%20planen%20unsere%20Hochzeit%20und%20w%C3%BCrden%20gerne%20mit%20dir%20sprechen."
@@ -1073,6 +1158,9 @@ ul, ol { list-style: none; }
     >
       Verfügbarkeit prüfen
     </a>
+    <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
@@ -1142,7 +1230,7 @@ ul, ol { list-style: none; }
   </section>
 
   <!-- ============ 4. THE EXPERIENCE (USP) ============ -->
-  <section class="experience">
+  <section class="experience" id="weddings">
     <div class="experience__intro">
       <p class="eyebrow">Weddings</p>
       <h2 class="experience__title">
@@ -1196,7 +1284,7 @@ ul, ol { list-style: none; }
   </div>
 
   <!-- ============ 5. REPERTOIRE & SOUND ============ -->
-  <section class="repertoire">
+  <section class="repertoire" id="repertoire">
     <p class="eyebrow">Klang &amp; Repertoire</p>
     <h2 class="section-title">Von Zärtlich bis Ausgelassen</h2>
     <p class="body-text body-text--wide">
@@ -1402,7 +1490,7 @@ ul, ol { list-style: none; }
   </section>
 
   <!-- ============ 8. FAQ ============ -->
-  <section class="faq">
+  <section class="faq" id="faq">
     <p class="eyebrow eyebrow--center">Häufige Fragen</p>
 
     <div class="faq__list">
@@ -1509,6 +1597,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ---- Mobile hamburger menu ---- */
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (navToggle && navLinks) {
+    const closeMenu = () => {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    };
+    const toggleMenu = () => {
+      const isOpen = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    };
+    navToggle.addEventListener('click', toggleMenu);
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('click', (e) => {
+      if (!navLinks.classList.contains('is-open')) return;
+      if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) closeMenu();
+    });
+  }
 
   const revealTargets = document.querySelectorAll(
     '.split__text, .split__media, .numbered-list__item, .testimonial-slider, ' +

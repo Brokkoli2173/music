@@ -15,7 +15,7 @@
 <!-- Fonts: Fraunces (display, warm serif with real personality) + Inter (clean utility body) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
 /* ==========================================================================
@@ -39,7 +39,7 @@
   --line-on-light: rgba(74, 64, 56, 0.12);
 
   /* ---- Type ---- */
-  --font-display: "Fraunces", Georgia, serif;
+  --font-display: "Newsreader", Georgia, serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-accent: "Archivo", "Inter", sans-serif; /* bold expanded grotesk — reserved for small eyebrow labels/buttons only, never headlines */
 
@@ -140,14 +140,14 @@ ul, ol { list-style: none; }
 .section-title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2rem, 1.5rem + 2.3vw, 3.4rem);
+  font-size: clamp(1.5rem, 1.2rem + 1.3vw, 2.1rem);
   line-height: 1.15;
   letter-spacing: -0.005em;
   margin-bottom: var(--space-md);
 }
 .section-title em {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
   color: var(--gold);
 }
@@ -287,7 +287,7 @@ ul, ol { list-style: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 6%;
+  object-position: center 38%;
   filter: saturate(0.85) brightness(0.9) contrast(1.06) sepia(0.1);
   will-change: transform;
 }
@@ -345,7 +345,7 @@ ul, ol { list-style: none; }
 .hero__headline {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.4rem, 1.7rem + 4vw, 5rem);
+  font-size: clamp(1.75rem, 1.35rem + 2.2vw, 2.9rem);
   line-height: 1.1;
   letter-spacing: -0.005em;
   margin-bottom: var(--space-md);
@@ -353,7 +353,7 @@ ul, ol { list-style: none; }
 }
 .hero__headline em {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
   color: var(--gold);
 }
@@ -388,7 +388,7 @@ ul, ol { list-style: none; }
     margin-right: 0;
   }
   .hero__image {
-    object-position: 30% 5%;
+    object-position: 30% 35%;
   }
 }
 
@@ -501,7 +501,7 @@ ul, ol { list-style: none; }
 .experience__title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2rem, 1.5rem + 2.6vw, 3.6rem);
+  font-size: clamp(1.55rem, 1.2rem + 1.5vw, 2.3rem);
   line-height: 1.15;
   letter-spacing: -0.005em;
   max-width: 780px;
@@ -509,7 +509,7 @@ ul, ol { list-style: none; }
 }
 .experience__title em {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
   color: var(--gold);
 }
@@ -892,7 +892,7 @@ ul, ol { list-style: none; }
 .process__title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(1.7rem, 1.3rem + 1.8vw, 2.6rem);
+  font-size: clamp(1.3rem, 1.1rem + 1vw, 1.75rem);
   line-height: 1.15;
   margin-bottom: var(--space-sm);
 }
@@ -955,13 +955,14 @@ ul, ol { list-style: none; }
 .final-cta__headline {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(1.9rem, 1.5rem + 2.3vw, 3.2rem);
+  font-size: clamp(1.4rem, 1.15rem + 1.2vw, 1.95rem);
   line-height: 1.15;
   margin-bottom: var(--space-sm);
 }
 .final-cta__headline em {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   color: var(--gold);
 }
 .final-cta__sub {
@@ -1317,8 +1318,9 @@ ul, ol { list-style: none; }
     </p>
 
     <p class="repertoire__note">
-      Alle Songs stammen aus einem bereits bestehenden Repertoire — daraus
-      wählt ihr die Titel aus, die zu eurem Tag passen.
+      Alle Songs stammen aus einem bereits bestehenden Repertoire, daraus
+      wählt ihr die Titel aus, die zu eurem Tag passen. Und falls ihr einen
+      ganz eigenen Wunschsong im Kopf habt: immer her damit.
     </p>
   </section>
 

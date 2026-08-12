@@ -1590,6 +1590,13 @@ document.addEventListener('DOMContentLoaded', () => {
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
+  /* ---- Reset performance videos to their poster once playback ends ---- */
+  document.querySelectorAll('.performance-video').forEach((video) => {
+    video.addEventListener('ended', () => {
+      video.load(); // reloading brings the poster image back instead of freezing on the last frame
+    });
+  });
+
   /* ---- Mobile hamburger menu ---- */
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');

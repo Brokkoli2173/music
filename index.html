@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Melis Bulut — Hochzeitssängerin</title>
-<meta name="description" content="Melis Bulut begleitet eure Hochzeit mit Live-Gesang, der genau auf euren Tag abgestimmt ist. Termine jetzt per WhatsApp anfragen.">
+<title>Mel Bulut — Hochzeitssängerin</title>
+<meta name="description" content="Ich begleite eure Hochzeit mit Live-Gesang, der genau auf euren Tag abgestimmt ist. Termine jetzt per WhatsApp anfragen.">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Melis Bulut — Hochzeitssängerin">
-<meta property="og:description" content="Live-Musik, die den Moment trägt. Erfahrt mehr über Melis Bulut und sichert euch euer Datum.">
+<meta property="og:title" content="Mel Bulut — Hochzeitssängerin">
+<meta property="og:description" content="Live-Musik, die den Moment trägt. Erfahrt mehr über Mel Bulut und sichert euch euer Datum.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/images/og-cover.jpg">
 
@@ -277,7 +277,7 @@ ul, ol { list-style: none; }
 
 .hero {
   position: relative;
-  min-height: 100svh;
+  min-height: 78svh;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -295,8 +295,8 @@ ul, ol { list-style: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 25%; /* keep face clear of the headline's lower line */
-  filter: saturate(0.85) brightness(0.88) contrast(1.08) sepia(0.12);
+  object-position: center 20%;
+  filter: saturate(0.85) brightness(0.9) contrast(1.06) sepia(0.1);
   will-change: transform;
 }
 
@@ -396,7 +396,7 @@ ul, ol { list-style: none; }
     margin-right: 0;
   }
   .hero__image {
-    object-position: 22% 22%;
+    object-position: 30% 18%;
   }
 }
 
@@ -809,7 +809,7 @@ ul, ol { list-style: none; }
   position: relative;
   max-width: 780px;
   margin: 0 auto;
-  min-height: 9em;
+  min-height: 11em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -832,6 +832,7 @@ ul, ol { list-style: none; }
   position: absolute;
   inset: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   opacity: 0;
@@ -852,6 +853,17 @@ ul, ol { list-style: none; }
   font-size: clamp(1.3rem, 1.05rem + 1.1vw, 2rem);
   line-height: 1.5;
   max-width: 680px;
+}
+.testimonial-slide cite {
+  display: block;
+  margin-top: var(--space-sm);
+  font-style: normal;
+  font-family: var(--font-accent);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
 }
 
 .testimonial-dots {
@@ -875,29 +887,6 @@ ul, ol { list-style: none; }
   transform: scale(1.3);
 }
 
-/* ==========================================================================
-   MANIFESTO
-   ========================================================================== */
-
-.manifesto {
-  background: var(--ivory);
-  padding: var(--space-2xl) var(--space-md);
-}
-.manifesto__text {
-  max-width: 840px;
-  margin: 0 auto;
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(1.5rem, 1.2rem + 2vw, 2.6rem);
-  line-height: 1.4;
-  color: var(--stone);
-  text-align: center;
-}
-.manifesto__text em {
-  font-style: italic;
-  font-weight: 500;
-  color: var(--gold);
-}
 
 /* ==========================================================================
    PROCESS
@@ -1083,10 +1072,10 @@ ul, ol { list-style: none; }
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a href="#top" class="nav__name">Melis Bulut</a>
+    <a href="#top" class="nav__name">Mel</a>
     <a
       class="nav__cta"
-      href="https://wa.me/491234567890?text=Hallo%20Melis%2C%20wir%20planen%20unsere%20Hochzeit%20und%20würden%20gerne%20mit%20dir%20sprechen."
+      href="https://wa.me/491234567890?text=Hallo%20Mel%2C%20wir%20planen%20unsere%20Hochzeit%20und%20würden%20gerne%20mit%20dir%20sprechen."
       target="_blank"
       rel="noopener"
     >
@@ -1100,29 +1089,29 @@ ul, ol { list-style: none; }
   <!-- ============ 1. HERO ============ -->
   <section class="hero" id="top">
     <div class="hero__media" aria-hidden="true">
-      <img class="hero__image" src="assets/images/hero.jpg" alt="" loading="eager" fetchpriority="high">
+      <img class="hero__image" src="assets/images/performance-bw.jpg" alt="" loading="eager" fetchpriority="high">
       <div class="hero__scrim"></div>
     </div>
 
     <div class="hero__content">
-      <span class="badge">Live-Gesang für eure Hochzeit</span>
+      <span class="badge">Wedding &amp; Event Singer · Deutschland</span>
       <h1 class="hero__headline">
-        Der Moment,<br>
-        <em>in dem alles<br>
-        andere still wird.</em>
+        Hochzeiten sind voller Momente,<br>
+        die man nicht planen kann.<br>
+        <em>Die Musik dafür schon.</em>
       </h1>
       <div class="hero__divider" aria-hidden="true"></div>
       <p class="hero__sub">
-        Melis Bulut begleitet euren Tag mit Musik, die für genau diesen einen
-        Moment gemacht ist — nicht für irgendeinen.
+        Ich bin Mel und begleite eure Hochzeit mit Live-Gesang —
+        persönlich, modern und passend zu euch.
       </p>
       <a
         class="btn btn--primary"
-        href="https://wa.me/491234567890?text=Hallo%20Melis%2C%20wir%20planen%20unsere%20Hochzeit%20und%20würden%20gerne%20mit%20dir%20sprechen."
+        href="https://wa.me/491234567890?text=Hallo%20Mel%2C%20wir%20planen%20unsere%20Hochzeit%20und%20würden%20gerne%20mit%20dir%20sprechen."
         target="_blank"
         rel="noopener"
       >
-        Termin per WhatsApp anfragen <span class="btn__arrow" aria-hidden="true">→</span>
+        Termin anfragen <span class="btn__arrow" aria-hidden="true">→</span>
       </a>
       <p class="hero__note">Antwort meist innerhalb eines Tages</p>
     </div>
@@ -1136,37 +1125,26 @@ ul, ol { list-style: none; }
     <span class="line-divider__line"></span>
   </div>
 
-  <!-- ============ 2. EMOTIONAL PROOF ============ -->
-  <section class="split split--media-left proof">
-    <div class="split__media">
-      <img class="split__image" src="assets/images/performance-bw.jpg" alt="Melis Bulut singt live bei einem Auftritt" loading="lazy">
-    </div>
-    <div class="split__text">
-      <p class="proof__quote">
-        „Für drei Minuten war der ganze Raum still —<br>
-        und dann haben alle geweint."
-      </p>
-    </div>
-  </section>
-
-  <!-- ============ 3. ABOUT ============ -->
+  <!-- ============ 2. ABOUT ============ -->
   <section class="split split--media-right" id="about">
     <div class="split__media">
-      <img class="split__image" src="assets/images/portrait.jpg" alt="Porträt von Melis Bulut" loading="lazy">
+      <img class="split__image" src="assets/images/portrait.jpg" alt="Porträt von Mel" loading="lazy">
     </div>
     <div class="split__text">
-      <p class="eyebrow">Über Melis</p>
-      <h2 class="section-title">Ich singe nicht<br><em>für</em> euch.<br>Ich singe <em>mit</em> euch.</h2>
+      <p class="eyebrow">About</p>
+      <h2 class="section-title">Hi, ich bin <em>Mel.</em></h2>
       <p class="body-text">
-        Ich begleite Hochzeiten als Sängerin — aber vor allem als jemand, der
-        genau hinhört. Bevor ich eine Note singe, will ich wissen, wer ihr
-        seid: wie ihr euch kennengelernt habt, welches Lied bei eurem ersten
-        Date lief, wovor ihr euch am meisten fürchtet, wenn ihr an diesen Tag
-        denkt.
+        Sängerin und Musikerin aus Deutschland.
       </p>
       <p class="body-text">
-        Daraus entsteht die Musik eures Tages — nicht aus einer Playlist von
-        der Stange.
+        Ich begleite Hochzeiten vom ersten Song der Trauung bis zum
+        Sektempfang und anderen besonderen Momenten des Tages.
+      </p>
+      <p class="body-text">
+        Welche Musik dabei die richtige ist, entscheiden wir gemeinsam. Ihr
+        könnt Songs wählen, die bereits zu euch gehören, euch von meinem
+        Repertoire inspirieren lassen oder mir einen besonderen Wunsch
+        mitbringen.
       </p>
     </div>
   </section>
@@ -1174,17 +1152,15 @@ ul, ol { list-style: none; }
   <!-- ============ 4. THE EXPERIENCE (USP) ============ -->
   <section class="experience">
     <div class="experience__intro">
-      <p class="eyebrow">Musikalische Regie</p>
+      <p class="eyebrow">Weddings</p>
       <h2 class="experience__title">
-        Es geht nicht darum,<br>
-        <em>was</em> gesungen wird.<br>
-        Es geht darum, <em>wann</em>.
+        Eure Hochzeit.<br>
+        <em>Eure Musik.</em>
       </h2>
       <p class="body-text">
-        Die meisten Hochzeitssänger bieten euch eine Songliste. Ich gestalte
-        den musikalischen Bogen eures Tages — wo Stille wichtiger ist als ein
-        Lied, wo ein Song sich langsam aufbaut, wo der Raum etwas fühlen soll,
-        bevor er es merkt.
+        Keine Hochzeit klingt gleich — und das soll sie auch nicht. Gemeinsam
+        schauen wir, welche Songs zu euch passen und an welchen Stellen
+        Live-Musik euren Tag begleiten soll.
       </p>
     </div>
 
@@ -1192,25 +1168,35 @@ ul, ol { list-style: none; }
       <li class="numbered-list__item">
         <span class="numbered-list__num">01</span>
         <div class="numbered-list__body">
-          <h3>Vor der Zeremonie</h3>
-          <p>Ruhige, unaufdringliche Stücke, die eintreffende Gäste einstimmen — ohne sich in den Vordergrund zu drängen.</p>
+          <h3>Trauung</h3>
+          <p>Vom Einzug über einen persönlichen Moment während der Zeremonie bis zum Auszug. Wir wählen gemeinsam die Songs, die zu euch und dem Ablauf eurer Trauung passen.</p>
         </div>
       </li>
       <li class="numbered-list__item">
         <span class="numbered-list__num">02</span>
         <div class="numbered-list__body">
-          <h3>Der Einzug</h3>
-          <p>Der Moment, der am längsten in Erinnerung bleibt. Zeitpunkt, Lautstärke und Stille werden bewusst gesetzt.</p>
+          <h3>Sektempfang</h3>
+          <p>Live-Musik im Hintergrund, während angestoßen, gratuliert und gefeiert wird. Entspannt und passend zur Atmosphäre.</p>
         </div>
       </li>
       <li class="numbered-list__item">
         <span class="numbered-list__num">03</span>
         <div class="numbered-list__body">
-          <h3>Der erste Tanz</h3>
-          <p>Live gesungen, oft in einer reduzierten Fassung, die dem Moment Raum lässt, statt ihn zu füllen.</p>
+          <h3>First Dance</h3>
+          <p>Euer Song, live gesungen. Auf Wunsch auch in einer eigenen, reduzierten Version.</p>
         </div>
       </li>
     </ol>
+
+    <a
+      class="btn btn--primary"
+      href="https://wa.me/491234567890?text=Hallo%20Mel%2C%20wir%20planen%20unsere%20Hochzeit%20und%20würden%20gerne%20mit%20dir%20sprechen."
+      target="_blank"
+      rel="noopener"
+      style="margin-top: var(--space-xl);"
+    >
+      Hochzeit anfragen <span class="btn__arrow" aria-hidden="true">→</span>
+    </a>
   </section>
 
   <div class="line-divider" aria-hidden="true">
@@ -1335,7 +1321,7 @@ ul, ol { list-style: none; }
 
     <p class="genre-list">
       Akustisch <span aria-hidden="true">·</span> Pop &amp; Soul <span aria-hidden="true">·</span>
-      Klassiker neu interpretiert <span aria-hidden="true">·</span> Türkische Klassiker <span aria-hidden="true">·</span>
+      Klassiker neu interpretiert <span aria-hidden="true">·</span> RnB <span aria-hidden="true">·</span>
       Jazz-Standards
     </p>
 
@@ -1347,19 +1333,30 @@ ul, ol { list-style: none; }
 
   <!-- ============ 6. TESTIMONIALS ============ -->
   <section class="testimonials">
-    <p class="testimonials__label">Stimmen von Paaren</p>
+    <p class="testimonials__label">Was Zuhörer sagen</p>
 
     <div class="testimonial-slider" data-testimonial-slider>
       <span class="testimonial-slider__mark" aria-hidden="true">„</span>
 
       <blockquote class="testimonial-slide is-active">
-        <p>So etwas Schönes habe ich schon lang nicht mehr gehört. Dieses Gefühl, diese Stimmfarbe …</p>
+        <p>Manchmal denke ich, dass Menschen mit so viel Talent einfach zu wenig Aufmerksamkeit bekommen … ich könnte mir das rund um die Uhr anhören.</p>
+        <cite>Xenia</cite>
       </blockquote>
       <blockquote class="testimonial-slide">
-        <p>Für meine Ohren ein Segen. So toll gesungen …</p>
+        <p>Einfach traumhaft schön und mit so viel Gefühl dabei — ich hab's mir gefühlt hundertmal angeschaut.</p>
+        <cite>Isi</cite>
       </blockquote>
       <blockquote class="testimonial-slide">
-        <p>Du berührst mein Herz. Ganz volle Stimme mit so viel Gefühl.</p>
+        <p>Was für eine Stimme — ich hatte gerade so eine Gänsehaut. Hammer!</p>
+        <cite>Daniel</cite>
+      </blockquote>
+      <blockquote class="testimonial-slide">
+        <p>Was ist das bitte für eine wundervolle Stimmfarbe!</p>
+        <cite>Erhan</cite>
+      </blockquote>
+      <blockquote class="testimonial-slide">
+        <p>Wie angenehm ist ihre Stimme, bitte.</p>
+        <cite>Fiorella</cite>
       </blockquote>
     </div>
 
@@ -1367,16 +1364,9 @@ ul, ol { list-style: none; }
       <button class="testimonial-dot is-active" type="button" data-index="0" aria-label="Stimme 1 anzeigen" aria-selected="true"></button>
       <button class="testimonial-dot" type="button" data-index="1" aria-label="Stimme 2 anzeigen" aria-selected="false"></button>
       <button class="testimonial-dot" type="button" data-index="2" aria-label="Stimme 3 anzeigen" aria-selected="false"></button>
+      <button class="testimonial-dot" type="button" data-index="3" aria-label="Stimme 4 anzeigen" aria-selected="false"></button>
+      <button class="testimonial-dot" type="button" data-index="4" aria-label="Stimme 5 anzeigen" aria-selected="false"></button>
     </div>
-  </section>
-
-  <!-- ============ MANIFESTO ============ -->
-  <section class="manifesto">
-    <p class="manifesto__text">
-      Ihr werdet euch nicht an jedes Wort erinnern, das an diesem Tag
-      gesagt wurde. Aber an das Gefühl, als die Musik einsetzte —
-      <em>daran schon.</em>
-    </p>
   </section>
 
   <!-- ============ 7. BOOKING PROCESS ============ -->
@@ -1410,7 +1400,7 @@ ul, ol { list-style: none; }
 
     <a
       class="btn btn--primary"
-      href="https://wa.me/491234567890?text=Hallo%20Melis%2C%20wir%20planen%20unsere%20Hochzeit%20und%20würden%20gerne%20mit%20dir%20sprechen."
+      href="https://wa.me/491234567890?text=Hallo%20Mel%2C%20wir%20planen%20unsere%20Hochzeit%20und%20würden%20gerne%20mit%20dir%20sprechen."
       target="_blank"
       rel="noopener"
     >
@@ -1428,20 +1418,20 @@ ul, ol { list-style: none; }
         <p>Beliebte Termine, besonders an Wochenenden zwischen Mai und September, sind oft 8–12 Monate im Voraus vergeben. Kurzfristige Anfragen lohnen sich trotzdem immer — fragt einfach nach.</p>
       </details>
       <details class="faq__item">
-        <summary>Reist Melis auch außerhalb der Region an?</summary>
-        <p>Ja. Auftritte in ganz Deutschland und im deutschsprachigen Ausland sind möglich, Reisekosten werden individuell besprochen.</p>
+        <summary>Reist du auch außerhalb der Region an?</summary>
+        <p>Ja. Auftritte in ganz Deutschland und im deutschsprachigen Ausland sind möglich, Reisekosten bespreche ich individuell mit euch.</p>
       </details>
       <details class="faq__item">
         <summary>Können wir eigene Songwünsche einbringen?</summary>
         <p>Unbedingt. Euer Wunschlied für den ersten Tanz oder den Einzug ist der Ausgangspunkt jeder Zusammenarbeit.</p>
       </details>
       <details class="faq__item">
-        <summary>Tritt Melis solo auf oder mit Band?</summary>
-        <p>Beides ist möglich — von akustischer Gitarrenbegleitung bis zum vollen Bandsetup, je nach Location und Wunsch.</p>
+        <summary>Trittst du solo auf oder mit Band?</summary>
+        <p>Beides ist möglich — ich biete von akustischer Gitarrenbegleitung bis zum vollen Bandsetup an, je nach Location und Wunsch.</p>
       </details>
       <details class="faq__item">
-        <summary>Was passiert, wenn Melis kurzfristig ausfällt?</summary>
-        <p>Über ein verlässliches Netzwerk erfahrener Musikerinnen und Musiker ist im unwahrscheinlichen Fall eines Ausfalls ein gleichwertiger Ersatz organisiert.</p>
+        <summary>Was passiert, wenn du kurzfristig ausfällst?</summary>
+        <p>Über mein verlässliches Netzwerk erfahrener Musikerinnen und Musiker organisiere ich im unwahrscheinlichen Fall eines Ausfalls einen gleichwertigen Ersatz.</p>
       </details>
     </div>
   </section>
@@ -1451,10 +1441,10 @@ ul, ol { list-style: none; }
     <h2 class="final-cta__headline">
       Euer Datum wartet<br><em>nicht ewig.</em>
     </h2>
-    <p class="final-cta__sub">Schreibt Melis noch heute und sichert euch euren Wunschtermin.</p>
+    <p class="final-cta__sub">Schreibt mir noch heute und sichert euch euren Wunschtermin.</p>
     <a
       class="btn btn--primary btn--large"
-      href="https://wa.me/491234567890?text=Hallo%20Melis%2C%20wir%20planen%20unsere%20Hochzeit%20und%20würden%20gerne%20mit%20dir%20sprechen."
+      href="https://wa.me/491234567890?text=Hallo%20Mel%2C%20wir%20planen%20unsere%20Hochzeit%20und%20würden%20gerne%20mit%20dir%20sprechen."
       target="_blank"
       rel="noopener"
     >
@@ -1467,21 +1457,21 @@ ul, ol { list-style: none; }
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
   <div class="footer__inner">
-    <p class="footer__name">Melis Bulut</p>
+    <p class="footer__name">Mel Bulut</p>
     <p class="footer__tagline">Hochzeitssängerin · Deutschlandweit &amp; international</p>
     <div class="footer__links">
       <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
       <a href="https://wa.me/491234567890" target="_blank" rel="noopener">WhatsApp</a>
       <a href="#impressum">Impressum</a>
     </div>
-    <p class="footer__legal" id="impressum">© <span id="year"></span> Melis Bulut. Alle Rechte vorbehalten.</p>
+    <p class="footer__legal" id="impressum">© <span id="year"></span> Mel Bulut. Alle Rechte vorbehalten.</p>
   </div>
 </footer>
 
 <!-- Sticky mobile WhatsApp button -->
 <a
   class="sticky-cta"
-  href="https://wa.me/491234567890?text=Hallo%20Melis%2C%20wir%20planen%20unsere%20Hochzeit%20und%20würden%20gerne%20mit%20dir%20sprechen."
+  href="https://wa.me/491234567890?text=Hallo%20Mel%2C%20wir%20planen%20unsere%20Hochzeit%20und%20würden%20gerne%20mit%20dir%20sprechen."
   target="_blank"
   rel="noopener"
   aria-label="Auf WhatsApp kontaktieren"
@@ -1530,7 +1520,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const revealTargets = document.querySelectorAll(
     '.split__text, .split__media, .numbered-list__item, .testimonial-slider, ' +
-    '.faq__item, .repertoire, .manifesto__text, .final-cta__headline'
+    '.faq__item, .repertoire, .final-cta__headline'
   );
   revealTargets.forEach(el => el.classList.add('reveal'));
 

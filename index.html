@@ -1503,10 +1503,10 @@ document.addEventListener('DOMContentLoaded', () => {
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  /* ---- Reset performance videos to their poster once playback ends ---- */
+  /* ---- Reset performance videos to their poster whenever they pause or end ---- */
   document.querySelectorAll('.performance-video').forEach((video) => {
-    video.addEventListener('ended', () => {
-      video.load(); // reloading brings the poster image back instead of freezing on the last frame
+    video.addEventListener('pause', () => {
+      video.load(); // reloading brings the poster image back instead of freezing on the current frame
     });
   });
 

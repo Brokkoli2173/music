@@ -649,63 +649,6 @@ ul, ol { list-style: none; }
   padding: var(--space-2xl) var(--space-md);
 }
 
-.demo-list {
-  margin-top: var(--space-lg);
-  max-width: 560px;
-}
-.demo-list__item {
-  border-top: 1px solid var(--line-on-light);
-  padding: var(--space-sm) 0;
-}
-.demo-list__item:last-child { border-bottom: 1px solid var(--line-on-light); }
-
-.demo-list__toggle {
-  display: flex;
-  align-items: center;
-  gap: 0.9em;
-  width: 100%;
-  background: none;
-  border: none;
-  padding: 0;
-  color: var(--ink);
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.98rem;
-  cursor: pointer;
-  text-align: left;
-}
-.demo-list__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 1px solid var(--gold);
-  color: var(--gold);
-  font-size: 0.75rem;
-  flex-shrink: 0;
-  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
-}
-.demo-list__item.is-active .demo-list__icon {
-  background: var(--gold);
-  color: var(--ink);
-}
-.demo-list__track {
-  height: 2px;
-  background: var(--line-on-light);
-  border-radius: 2px;
-  overflow: hidden;
-  margin-top: var(--space-sm);
-  margin-left: calc(34px + 0.9em);
-}
-.demo-list__progress {
-  height: 100%;
-  width: 0%;
-  background: var(--gold);
-  transition: width 0.1s linear;
-}
-
 .genre-list {
   margin-top: var(--space-lg);
   font-size: 0.95rem;
@@ -1285,35 +1228,6 @@ ul, ol { list-style: none; }
 
   <!-- ============ 5. REPERTOIRE & SOUND ============ -->
   <section class="repertoire" id="repertoire">
-    <p class="eyebrow">Klang &amp; Repertoire</p>
-    <h2 class="section-title">Von Zärtlich bis Ausgelassen</h2>
-    <p class="body-text body-text--wide">
-      Akustisch oder mit Band, klassisch interpretiert oder ganz neu. Hört
-      selbst rein:
-    </p>
-
-    <ul class="demo-list" data-demo-list>
-      <li class="demo-list__item is-active" data-index="0" data-src="assets/audio/demo-1.mp3">
-        <button class="demo-list__toggle" aria-pressed="false">
-          <span class="demo-list__icon" aria-hidden="true">▶</span>
-          <span class="demo-list__title">Book of Love (Peter Gabriel)</span>
-        </button>
-        <div class="demo-list__track" aria-hidden="true">
-          <div class="demo-list__progress"></div>
-        </div>
-      </li>
-      <li class="demo-list__item" data-index="1" data-src="assets/audio/demo-2.mp3">
-        <button class="demo-list__toggle" aria-pressed="false">
-          <span class="demo-list__icon" aria-hidden="true">▶</span>
-          <span class="demo-list__title">Live mit Band</span>
-        </button>
-        <div class="demo-list__track" aria-hidden="true">
-          <div class="demo-list__progress"></div>
-        </div>
-      </li>
-    </ul>
-    <audio id="demoAudio" preload="none"></audio>
-
     <div class="video-section" id="videos">
       <div class="video-section-heading">
         <span class="section-label">Hörproben</span>
@@ -1645,82 +1559,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.4 });
   dividerLines.forEach(line => dividerObserver.observe(line));
-
-  const demoList = document.querySelector('[data-demo-list]');
-  const demoAudio = document.getElementById('demoAudio');
-
-  if (demoList && demoAudio) {
-    const items = demoList.querySelectorAll('.demo-list__item');
-
-    const setActive = (item) => {
-      items.forEach((el) => {
-        const isThis = el === item;
-        el.classList.toggle('is-active', isThis);
-        el.querySelector('.demo-list__toggle').setAttribute('aria-pressed', isThis ? 'true' : 'false');
-        el.querySelector('.demo-list__icon').textContent = isThis ? '❚❚' : '▶';
-        if (!isThis) el.querySelector('.demo-list__progress').style.width = '0%';
-      });
-    };
-
-    const resetIcon = (item) => {
-      item.querySelector('.demo-list__icon').textContent = '▶';
-      item.querySelector('.demo-list__toggle').setAttribute('aria-pressed', 'false');
-    };
-
-    items.forEach((item) => {
-      const toggle = item.querySelector('.demo-list__toggle');
-      const src = item.dataset.src;
-
-      toggle.addEventListener('click', () => {
-        const isCurrentTrack = demoAudio.dataset.currentSrc === src;
-
-        if (isCurrentTrack && !demoAudio.paused) {
-          demoAudio.pause();
-          return;
-        }
-
-        if (!isCurrentTrack) {
-          demoAudio.src = src;
-          demoAudio.dataset.currentSrc = src;
-        }
-
-        setActive(item);
-        demoAudio.play().catch(() => {
-          item.querySelector('.demo-list__title').textContent += ' (Audio folgt in Kürze)';
-          resetIcon(item);
-        });
-      });
-    });
-
-    demoAudio.addEventListener('pause', () => {
-      const activeItem = demoList.querySelector('.demo-list__item.is-active');
-      if (activeItem) resetIcon(activeItem);
-    });
-
-    demoAudio.addEventListener('play', () => {
-      const activeItem = demoList.querySelector('.demo-list__item.is-active');
-      if (activeItem) {
-        activeItem.querySelector('.demo-list__icon').textContent = '❚❚';
-        activeItem.querySelector('.demo-list__toggle').setAttribute('aria-pressed', 'true');
-      }
-    });
-
-    demoAudio.addEventListener('ended', () => {
-      const activeItem = demoList.querySelector('.demo-list__item.is-active');
-      if (activeItem) {
-        resetIcon(activeItem);
-        activeItem.querySelector('.demo-list__progress').style.width = '0%';
-      }
-    });
-
-    demoAudio.addEventListener('timeupdate', () => {
-      if (!demoAudio.duration) return;
-      const activeItem = demoList.querySelector('.demo-list__item.is-active');
-      if (!activeItem) return;
-      const pct = (demoAudio.currentTime / demoAudio.duration) * 100;
-      activeItem.querySelector('.demo-list__progress').style.width = pct + '%';
-    });
-  }
 
   const slider = document.querySelector('[data-testimonial-slider]');
   if (slider) {

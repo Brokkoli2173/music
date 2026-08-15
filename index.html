@@ -721,6 +721,7 @@ ul, ol { list-style: none; }
 }
 
 .video-frame {
+  position: relative;
   overflow: hidden;
   border-radius: var(--radius-sm);
 }
@@ -740,6 +741,31 @@ ul, ol { list-style: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .performance-video { transition: none; }
+}
+
+.youtube-facade {
+  cursor: pointer;
+}
+.yt-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(7, 4, 3, 0.6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 3px; /* optically center the play triangle */
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.youtube-facade:hover .yt-play-btn {
+  background: var(--gold);
+  transform: translate(-50%, -50%) scale(1.08);
 }
 
 .video-text {
@@ -1249,16 +1275,11 @@ ul, ol { list-style: none; }
 
       <div class="video-grid">
         <div class="video-card">
-          <div class="video-frame">
-            <iframe
-              class="performance-video"
-              src="https://www.youtube-nocookie.com/embed/78194JxTKqw?rel=0&modestbranding=1&playsinline=1"
-              title="A Thousand Years – Christina Perri (Akustik), Einzug der Braut"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-              loading="lazy"
-            ></iframe>
+          <div class="video-frame youtube-facade" data-yt-id="78194JxTKqw">
+            <img class="performance-video" src="assets/video/hoerprobe-1-poster.jpg" alt="A Thousand Years – Christina Perri, Einzug der Braut" loading="lazy">
+            <button class="yt-play-btn" type="button" aria-label="Video abspielen">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </button>
           </div>
           <div class="video-text">
             <p class="video-song">A Thousand Years <span>— Christina Perri</span></p>
@@ -1267,11 +1288,11 @@ ul, ol { list-style: none; }
         </div>
 
         <div class="video-card">
-          <div class="video-frame">
-            <video class="performance-video" controls preload="metadata" playsinline poster="assets/video/hoerprobe-2-poster.jpg">
-              <source src="assets/video/hoerprobe-2.mp4" type="video/mp4">
-              Dein Browser unterstützt die Wiedergabe dieses Videos leider nicht.
-            </video>
+          <div class="video-frame youtube-facade" data-yt-id="X5ULgW9K4ZQ">
+            <img class="performance-video" src="assets/video/hoerprobe-2-poster.jpg" alt="Dancing in the Moonlight – Toploader, Sektempfang" loading="lazy">
+            <button class="yt-play-btn" type="button" aria-label="Video abspielen">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </button>
           </div>
           <div class="video-text">
             <p class="video-song">Dancing in the Moonlight <span>— Toploader</span></p>
@@ -1280,11 +1301,11 @@ ul, ol { list-style: none; }
         </div>
 
         <div class="video-card">
-          <div class="video-frame">
-            <video class="performance-video" controls preload="metadata" playsinline poster="assets/video/hoerprobe-3-poster.jpg">
-              <source src="assets/video/hoerprobe-3.mp4" type="video/mp4">
-              Dein Browser unterstützt die Wiedergabe dieses Videos leider nicht.
-            </video>
+          <div class="video-frame youtube-facade" data-yt-id="_h7n9KKKnEA">
+            <img class="performance-video" src="assets/video/hoerprobe-3-poster.jpg" alt="Vienna – Billy Joel, live mit Piano" loading="lazy">
+            <button class="yt-play-btn" type="button" aria-label="Video abspielen">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </button>
           </div>
           <div class="video-text">
             <p class="video-song">Vienna <span>— Billy Joel</span></p>
@@ -1517,6 +1538,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ---- YouTube facade: load the embed only when the poster is clicked ---- */
+  document.querySelectorAll('.youtube-facade').forEach((facade) => {
+    facade.addEventListener('click', () => {
+      const videoId = facade.dataset.ytId;
+      const posterImg = facade.querySelector('img');
+      const title = posterImg ? posterImg.alt : 'YouTube Video';
+
+      const iframe = document.createElement('iframe');
+      iframe.className = 'performance-video';
+      iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1&autoplay=1`;
+      iframe.title = title;
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+      iframe.setAttribute('allowfullscreen', '');
+
+      facade.innerHTML = '';
+      facade.appendChild(iframe);
+    }, { once: true });
+  });
 
   /* ---- Reset performance videos to their poster whenever they pause or end ---- */
   document.querySelectorAll('.performance-video').forEach((video) => {

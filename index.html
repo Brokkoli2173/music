@@ -1548,11 +1548,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const iframe = document.createElement('iframe');
       iframe.className = 'performance-video';
-      iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1&autoplay=1`;
+      // Start muted (browsers always allow this) then unmute immediately after load —
+      // unmuted autoplay alone gets blocked by most browsers and would need a second click.
+      iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1&autoplay=1&mute=1&enablejsapi=1`;
       iframe.title = title;
       iframe.setAttribute('frameborder', '0');
       iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
       iframe.setAttribute('allowfullscreen', '');
+
+      iframe.addEventListener('load', () => {
+        setTimeout(() => {
+          iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'unMute', args: [] }), '*');
+          iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'playVideo', args: [] }), '*');
+        }, 300);
+      });
 
       facade.innerHTML = '';
       facade.appendChild(iframe);

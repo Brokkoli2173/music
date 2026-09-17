@@ -12,12 +12,12 @@
 
 <style>
   :root {
-    --bg: #2b2521;
-    --bg-dim: #241f1b;
-    --text: #e8e2d8;
-    --text-muted: #a89a8a;
-    --line: rgba(232, 226, 216, 0.14);
-    --accent: #9c8b7a;
+    --bg: #262626;
+    --bg-dim: #1f1f1f;
+    --text: #e9e8e6;
+    --text-muted: #9c9a97;
+    --line: rgba(233, 232, 230, 0.14);
+    --accent: #8f8d8a;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -43,7 +43,7 @@
   /* ---- Hero ---- */
   .hero {
     position: relative;
-    min-height: 72svh;
+    min-height: 92svh;
     display: flex;
     align-items: flex-end;
     overflow: hidden;
@@ -60,7 +60,7 @@
   .hero__scrim {
     position: absolute;
     inset: 0;
-    background: linear-gradient(0deg, rgba(20,16,13,0.94) 0%, rgba(20,16,13,0.6) 45%, rgba(20,16,13,0.25) 75%, rgba(20,16,13,0.1) 100%);
+    background: linear-gradient(0deg, rgba(20,20,20,0.94) 0%, rgba(20,20,20,0.6) 45%, rgba(20,20,20,0.25) 75%, rgba(20,20,20,0.1) 100%);
   }
   .hero__content {
     position: relative;
@@ -75,10 +75,20 @@
     .hero__content { max-width: 660px; }
   }
   .back-link--hero {
-    color: var(--text-muted);
-    margin-bottom: 2.5rem;
+    position: absolute;
+    top: clamp(1.2rem, 3vw, 2rem);
+    left: clamp(1.2rem, 3vw, 2rem);
+    z-index: 3;
+    color: var(--text);
+    margin-bottom: 0;
+    background: rgba(20, 20, 20, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 0.5em 0.9em;
+    border-radius: 999px;
+    border-bottom: none;
   }
-  .back-link--hero:hover { color: var(--text); }
+  .back-link--hero:hover { background: rgba(20, 20, 20, 0.75); }
 
   .back-link {
     display: inline-block;
@@ -122,6 +132,20 @@
   }
 
   section { margin-bottom: 1rem; }
+
+  .breakout {
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+  }
+  .breakout__inner {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
 
   .steps {
     list-style: none;
@@ -186,15 +210,33 @@
   }
 
   a.contact {
-    display: inline-block;
-    color: var(--text);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.9em 1.8em;
+    border-radius: 999px;
     text-decoration: none;
-    font-size: 0.95rem;
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 0.2em;
-    transition: opacity 0.3s ease;
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
-  a.contact:hover { opacity: 0.75; }
+  a.contact:hover { opacity: 0.85; transform: translateY(-1px); }
+  a.contact--primary {
+    background: var(--accent);
+    color: #fff;
+  }
+  a.contact--secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--line);
+  }
+  .contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
 
   .footer-note {
     margin-top: 2.5rem;
@@ -256,22 +298,24 @@
 
   <div class="quiet-line" aria-hidden="true"></div>
 
-  <section class="center">
-    <h2>Liedvorschläge</h2>
-    <p>
-      Eine Auswahl an Liedern, die bei freien Trauerfeiern oft gewünscht
-      werden, zum Reinhören. Auch eigene Wunschlieder sind möglich.
-    </p>
-    <iframe
-      style="border-radius:12px"
-      src="https://open.spotify.com/embed/playlist/1JxwooIDq1NekwBi3igZTp?utm_source=generator&theme=0"
-      width="100%"
-      height="352"
-      frameborder="0"
-      allowfullscreen=""
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy">
-    </iframe>
+  <section class="breakout center">
+    <div class="breakout__inner">
+      <h2>Liedvorschläge</h2>
+      <p>
+        Eine Auswahl an Liedern, die bei freien Trauerfeiern oft gewünscht
+        werden, zum Reinhören. Auch eigene Wunschlieder sind möglich.
+      </p>
+      <iframe
+        style="border-radius:12px"
+        src="https://open.spotify.com/embed/playlist/1JxwooIDq1NekwBi3igZTp?utm_source=generator&theme=0"
+        width="100%"
+        height="352"
+        frameborder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
   </section>
 
   <div class="quiet-line" aria-hidden="true"></div>
@@ -297,9 +341,16 @@
   <div class="quiet-line" aria-hidden="true"></div>
 
   <div class="center">
-    <a class="contact" href="mailto:info@mel-eventsinger.com?subject=Anfrage%20Trauerfeier">
-      info@mel-eventsinger.com
-    </a>
+    <h2>In Kontakt kommen</h2>
+    <p>Nehmt gerne Kontakt auf.</p>
+    <div class="contact-actions">
+      <a class="contact contact--primary" href="mailto:info@mel-eventsinger.com?subject=Anfrage%20Trauerfeier">
+        E-Mail schreiben
+      </a>
+      <a class="contact contact--secondary" href="https://instagram.com/mel_eventsinger" target="_blank" rel="noopener">
+        Instagram
+      </a>
+    </div>
     <p class="footer-note">Raum Wiesbaden, Frankfurt, Mainz, Darmstadt</p>
   </div>
 </div>

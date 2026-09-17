@@ -74,7 +74,7 @@
   @media (min-width: 860px) {
     .hero__content { max-width: 660px; }
   }
-  .back-link--hero {
+  a.back-link--hero {
     position: absolute;
     top: clamp(1.2rem, 3vw, 2rem);
     left: clamp(1.2rem, 3vw, 2rem);
@@ -88,7 +88,7 @@
     border-radius: 999px;
     border-bottom: none;
   }
-  .back-link--hero:hover { background: rgba(20, 20, 20, 0.75); }
+  a.back-link--hero:hover { background: rgba(20, 20, 20, 0.75); color: var(--text); }
 
   .back-link {
     display: inline-block;
@@ -251,8 +251,8 @@
 <section class="hero">
   <img class="hero__image" src="assets/images/trauerfeier-hero.jpg" alt="" loading="eager">
   <div class="hero__scrim"></div>
+  <a class="back-link back-link--hero" href="index.html">&larr; Zur Startseite</a>
   <div class="hero__content">
-    <a class="back-link back-link--hero" href="index.html">&larr; Zur Startseite</a>
     <h1>Manchmal sagt ein Lied mehr als Worte.</h1>
     <p>
       Ich begleite freie Trauerfeiern mit Live-Gesang, einfühlsam und

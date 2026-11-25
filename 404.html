@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seite nicht gefunden | Mel</title>
+<meta name="robots" content="noindex">
+
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+
+<style>
+  :root {
+    --ink: #241a10;
+    --ivory: #f4e9d3;
+    --ivory-dim: #ecdbb9;
+    --gold: #c9992a;
+    --gold-soft: #ddb555;
+    --stone: #8a7a63;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    padding: 2rem;
+  }
+  .num {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(4rem, 8vw, 7rem);
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+  }
+  p {
+    color: var(--stone);
+    font-size: 1.05rem;
+    max-width: 40ch;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    padding: 1em 2em;
+    background: var(--gold);
+    color: var(--ink);
+    text-decoration: none;
+    border-radius: 999px;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  .btn:hover { background: var(--gold-soft); transform: translateY(-2px); }
+  .arrow { transition: transform 0.3s ease; }
+  .btn:hover .arrow { transform: translateX(4px); }
+</style>
+</head>
+<body>
+  <p class="num">404</p>
+  <h1>Diese Seite gibt es nicht</h1>
+  <p>Der Link scheint nicht (mehr) zu stimmen. Vielleicht hilft dir die Startseite weiter.</p>
+  <a class="btn" href="/">Zur Startseite <span class="arrow" aria-hidden="true">→</span></a>
+</body>
+</html>

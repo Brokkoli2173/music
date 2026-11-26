@@ -897,6 +897,13 @@ ul, ol { list-style: none; }
 }
 .spotify-consent a { color: inherit; }
 .spotify-consent button { cursor: pointer; border: none; font: inherit; }
+/* Vorschaubild: lokales Foto mit dunklem Verlauf, es wird nichts von Spotify geladen */
+.spotify-consent {
+  min-height: 300px;
+  background: linear-gradient(rgba(12,7,5,0.55), rgba(12,7,5,0.78)), url("assets/images/playlist-preview.jpg") center 28% / cover no-repeat;
+  color: var(--ivory);
+}
+.spotify-consent p { color: rgba(248,245,240,0.88); }
 
 /* ==========================================================================
    TESTIMONIALS
@@ -1545,6 +1552,7 @@ ul, ol { list-style: none; }
       <a href="mailto:info@mel-eventsinger.com">E-Mail</a>
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
+      <a href="#" data-consent-open>Cookie-Einstellungen</a>
     </div>
     <p class="footer__legal">© <span id="year"></span> Melis Bulut. Alle Rechte vorbehalten.</p>
   </div>
@@ -1762,5 +1770,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 </script>
+<script src="consent.js" defer></script>
 </body>
 </html>

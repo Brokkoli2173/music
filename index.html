@@ -1126,7 +1126,8 @@ ul, ol { list-style: none; }
   margin-top: var(--space-md);
   display: flex;
   justify-content: center;
-  gap: var(--space-md);
+  flex-wrap: wrap;
+  gap: 0.6rem var(--space-md);
   font-size: 0.85rem;
 }
 .footer__links a { transition: color var(--dur) var(--ease); }
@@ -1546,7 +1547,7 @@ ul, ol { list-style: none; }
 <footer class="footer">
   <div class="footer__inner">
     <p class="footer__name">Mel · Hochzeits- &amp; Eventsängerin</p>
-    <p class="footer__tagline">Hochzeits- &amp; Eventsängerin · Frankfurt &amp; Rhein-Main · deutschlandweit</p>
+    <p class="footer__tagline">Hochzeits- &amp; Eventsängerin · <span style="white-space:nowrap">Frankfurt &amp; Rhein-Main</span> · deutschlandweit</p>
     <div class="footer__links">
       <a href="https://instagram.com/mel_eventsinger" target="_blank" rel="noopener">Instagram</a>
       <a href="mailto:info@mel-eventsinger.com">E-Mail</a>

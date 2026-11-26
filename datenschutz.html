@@ -165,16 +165,31 @@ h3 { font-family: var(--font-body); font-size: 0.98rem; font-weight: 600; margin
     <h3>Spotify</h3>
     <p>
       Anbieter ist Spotify AB, Regeringsgatan 19, 111 53 Stockholm, Schweden.
-      Nach deinem Klick auf „Playlist laden" wird eine Verbindung zu Spotify
-      hergestellt, dabei werden unter anderem deine IP-Adresse und Geräteinformationen
-      übertragen. Spotify kann dabei Cookies setzen oder Informationen auf deinem Gerät
-      abrufen. Rechtsgrundlage ist deine Einwilligung durch den Klick
-      (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG). Du kannst sie jederzeit widerrufen,
-      indem du die Seite verlässt oder neu lädst.
+      Der Spotify-Player wird erst geladen, wenn du im Einwilligungs-Banner
+      „Alle akzeptieren“ oder die Option „Spotify-Player“ auswählst oder auf
+      „Playlist laden“ klickst. Dabei wird eine Verbindung zu Spotify
+      hergestellt, und unter anderem deine IP-Adresse und Geräteinformationen
+      werden übertragen. Spotify kann dabei Cookies setzen oder Informationen auf
+      deinem Gerät abrufen. Rechtsgrundlage ist deine Einwilligung
+      (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG). Du kannst sie jederzeit
+      widerrufen, indem du im Footer auf „Cookie-Einstellungen“ klickst und die
+      Auswahl änderst.
     </p>
     <p>
       Weitere Informationen findest du in den Datenschutzerklärungen von Google
       und Spotify.
+    </p>
+  </section>
+
+  <section>
+    <h2>Einwilligungs-Banner</h2>
+    <p>
+      Beim ersten Besuch fragt dich ein Banner, ob du optionale Inhalte zulassen
+      möchtest. Deine Auswahl wird im lokalen Speicher deines Browsers
+      (localStorage) abgelegt, damit das Banner nicht bei jedem Besuch erneut erscheint.
+      Dieser Eintrag ist technisch erforderlich (§ 25 Abs. 2 Nr. 2 TDDDG) und wird nicht
+      an uns oder Dritte übertragen. Du kannst deine Auswahl jederzeit über den Link
+      „Cookie-Einstellungen“ im Footer ändern.
     </p>
   </section>
 
@@ -229,5 +244,6 @@ h3 { font-family: var(--font-body); font-size: 0.98rem; font-weight: 600; margin
 
 </div>
 
+<script src="consent.js" defer></script>
 </body>
 </html>
